@@ -3,7 +3,7 @@
 All Python code that extracts data points directly from figures in published papers using PDF files (and raw data files)
 
 ```
-code/digitization/
+code/
 ├── digitise_master.py     master file: shared functions + registry of scripts + runner
 ├── README.md              this file
 ├── source_papers/         one script per source paper (37 scripts)
