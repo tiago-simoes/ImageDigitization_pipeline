@@ -1,0 +1,13 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Rate_class,Source,px_x,px_y,Age_cal_sd
+Crinoidea_Eucladida,phenotypic_rate,354.11,0.455,0.0321,0.392,0.5177,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1268.6,1068.4,0.03
+Crinoidea_Eucladida,phenotypic_rate,346.06,0.4702,0.0373,0.3971,0.5432,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1341.5,1050.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,338.05,0.4101,0.0347,0.3419,0.4778,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1414.0,1121.2,0.03
+Crinoidea_Eucladida,phenotypic_rate,330.02,0.6151,0.0388,0.539,0.691,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1486.7,879.8,0.03
+Crinoidea_Eucladida,phenotypic_rate,322.0,0.75,0.0559,0.6409,0.86,95CI,high,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1559.4,721.0,0.03
+Crinoidea_Eucladida,phenotypic_rate,313.96,0.69,0.0674,0.5577,0.8218,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1632.2,791.7,0.03
+Crinoidea_Eucladida,phenotypic_rate,305.97,0.42,0.0288,0.3632,0.4761,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1704.6,1109.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,297.91,0.46,0.0379,0.3852,0.5339,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1777.5,1062.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,289.85,0.5101,0.0492,0.4133,0.6061,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1850.5,1003.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,281.86,0.4551,0.0481,0.3606,0.5492,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1922.9,1068.3,0.03
+Crinoidea_Eucladida,phenotypic_rate,273.84,0.4851,0.0782,0.3317,0.6384,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1995.5,1032.9,0.03
+Crinoidea_Eucladida,phenotypic_rate,265.79,0.4701,0.1088,0.257,0.6834,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),2068.4,1050.6,0.03

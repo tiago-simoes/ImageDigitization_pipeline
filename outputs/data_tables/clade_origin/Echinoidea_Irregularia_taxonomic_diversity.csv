@@ -1,0 +1,9 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Echinoidea_Irregularia,taxonomic_diversity,178.47,20.7798,4.5585,16.2213,25.3383,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,172.26,19.7775,4.4472,15.3303,24.2247,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,169.29,119.951,10.9522,108.9988,130.9033,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,167.2,168.0255,12.9625,155.063,180.9879,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,164.81,119.951,10.9522,108.9988,130.9033,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,160.39,235.1407,15.3343,219.8064,250.475,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,154.66,127.9608,11.312,116.6489,139.2728,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,taxonomic_diversity,148.52,55.839,7.4726,48.3665,63.3116,Poisson,boivin_et_al_2018 Fig. 3 top (top-most envelope = sum of all clades),0.019

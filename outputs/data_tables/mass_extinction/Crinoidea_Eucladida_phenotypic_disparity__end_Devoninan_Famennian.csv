@@ -1,0 +1,4 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Rate_class,Source,px_x,px_y,Age_cal_sd
+Crinoidea_Eucladida,phenotypic_disparity,341.69,0.6163,0.0587,0.5575,0.675,SE,,Wright_2017_SI Figure S8; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1365.0,206.0,1.02
+Crinoidea_Eucladida,phenotypic_disparity,311.26,0.5824,0.0615,0.5208,0.6439,SE,,Wright_2017_SI Figure S8; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1570.0,260.5,1.02
+Crinoidea_Eucladida,phenotypic_disparity,275.26,0.6365,0.0615,0.5749,0.698,SE,,Wright_2017_SI Figure S8; mass-extinction crop: data <= 359 Ma (end-Devoninan (Famennian)),1812.5,173.5,1.02

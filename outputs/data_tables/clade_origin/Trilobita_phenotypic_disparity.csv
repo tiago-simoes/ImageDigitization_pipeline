@@ -1,0 +1,11 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Trilobita,phenotypic_disparity,549.43,0.0278,0.0074,0.0204,0.0352,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,524.49,0.02,0.0011,0.0188,0.0211,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,494.7,0.0409,0.0031,0.0378,0.044,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,459.11,0.0672,0.0041,0.063,0.0713,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,425.69,0.0642,0.0063,0.0579,0.0704,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,398.81,0.0552,0.0106,0.0446,0.0658,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,374.83,0.0521,0.0051,0.047,0.0573,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,343.84,0.0202,0.0058,0.0144,0.026,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,307.27,0.0055,0.0008,0.0047,0.0063,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096
+Trilobita,phenotypic_disparity,268.04,0.0095,0.0011,0.0084,0.0106,SE,"foote_1993 Fig. 5A (total variance, +/-1 SE bootstrap; time axis from Fig. 5B ticks; zero-anchors at 560/245 Ma excluded)",0.096

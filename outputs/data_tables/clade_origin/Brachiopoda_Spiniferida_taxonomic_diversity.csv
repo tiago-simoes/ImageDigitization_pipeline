@@ -1,0 +1,14 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Brachiopoda_Spiniferida,taxonomic_diversity,294.7,21.0,4.58258,16.41742,25.58258,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,286.905,25.0,5.0,20.0,30.0,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,278.837,22.0,4.69042,17.30958,26.69042,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,266.961,23.0,4.79583,18.20417,27.79583,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,255.726,15.0,3.87298,11.12702,18.87298,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,249.299,2.0,1.41421,0.58579,3.41421,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,241.847,33.0,5.74456,27.25544,38.74456,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,232.148,23.0,4.79583,18.20417,27.79583,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,218.404,29.0,5.38516,23.61484,34.38516,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,205.434,12.0,3.4641,8.5359,15.4641,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,197.127,5.0,2.23607,2.76393,7.23607,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,188.546,5.0,2.23607,2.76393,7.23607,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Spiniferida,taxonomic_diversity,179.447,6.0,2.44949,3.55051,8.44949,Poisson,guo_2024 Fig. 2c (Spiriferinida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015

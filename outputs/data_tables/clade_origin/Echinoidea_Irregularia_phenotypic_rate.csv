@@ -1,0 +1,22 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Echinoidea_Irregularia,phenotypic_rate,196.39,0.8998,0.139,0.6471,1.1918,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,187.1,1.2253,0.295,0.6504,1.8069,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,178.77,0.7611,0.1955,0.4802,1.2465,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,169.19,0.5197,0.0599,0.4105,0.6454,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,158.2,0.2657,0.0386,0.1879,0.3393,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,148.96,0.2652,0.054,0.179,0.3905,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,139.88,0.2547,0.0539,0.1537,0.365,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,130.55,0.2376,0.0418,0.1575,0.3214,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,119.91,0.2532,0.029,0.1944,0.3081,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,107.04,0.2411,0.0318,0.1771,0.302,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,97.7,0.3474,0.0699,0.2401,0.5139,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,89.26,0.3303,0.0536,0.241,0.4512,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,78.38,0.2687,0.0673,0.1657,0.4297,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,69.59,0.3171,0.0907,0.1675,0.5232,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,61.55,0.4981,0.1072,0.2848,0.705,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,52.47,0.764,0.1774,0.4618,1.1574,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,43.39,0.5636,0.1079,0.3793,0.8023,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,33.56,0.3492,0.0356,0.2817,0.4213,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,24.88,0.356,0.0432,0.2724,0.4419,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,16.66,0.3203,0.0401,0.2432,0.4005,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011
+Echinoidea_Irregularia,phenotypic_rate,6.47,0.3007,0.0693,0.1856,0.4571,95CI,hopkins_smith_2015 Fig. 2A (Irregularia; black = mean),0.011

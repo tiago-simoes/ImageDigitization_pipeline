@@ -1,0 +1,18 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Echinodermata,phenotypic_disparity,535.0,0.0004,0.2437,-0.2433,0.2441,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,525.0,0.1095,0.2834,-0.1738,0.3929,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,517.5,0.418,0.2186,0.1994,0.6366,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,511.5,0.5789,0.1819,0.3969,0.7608,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,506.75,0.6774,0.1542,0.5232,0.8316,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,502.5,0.7068,0.1634,0.5434,0.8702,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,498.75,0.7117,0.155,0.5568,0.8667,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,495.5,1.0004,0.1517,0.8487,1.1521,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,491.75,0.9178,0.1716,0.7463,1.0895,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,487.45,0.8791,0.2303,0.6488,1.1094,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,481.55,0.4603,0.2795,0.1809,0.7398,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,473.85,0.3412,0.3209,0.0203,0.6621,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,468.65,0.3753,0.3097,0.0656,0.685,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,462.85,0.5791,0.2953,0.2838,0.8744,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,455.7,0.5084,0.2879,0.2205,0.7963,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,449.1,0.5029,0.2967,0.2062,0.7996,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002
+Echinodermata,phenotypic_disparity,444.3,0.5411,0.1966,0.3445,0.7377,SE,novack-gottshall_et_al_2022 Fig. 1c (red/pink dashed: Morphology; band = SD across 50 trees / SE),0.002

@@ -1,0 +1,24 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Rate_class,Source,px_x,px_y,Age_cal_sd
+Crinoidea_Eucladida,phenotypic_rate,442.39,0.8301,0.0498,0.7326,0.928,95CI,high,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),469.1,626.7,0.03
+Crinoidea_Eucladida,phenotypic_rate,434.37,0.9901,0.1408,0.7139,1.266,95CI,high,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),541.7,438.4,0.03
+Crinoidea_Eucladida,phenotypic_rate,426.34,0.5202,0.0626,0.3971,0.6426,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),614.5,991.6,0.03
+Crinoidea_Eucladida,phenotypic_rate,418.3,0.4301,0.0596,0.313,0.5466,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),687.3,1097.7,0.03
+Crinoidea_Eucladida,phenotypic_rate,410.3,0.4701,0.0442,0.3835,0.5568,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),759.7,1050.6,0.03
+Crinoidea_Eucladida,phenotypic_rate,402.26,0.4802,0.0436,0.3946,0.5653,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),832.6,1038.7,0.03
+Crinoidea_Eucladida,phenotypic_rate,394.21,0.5399,0.0384,0.4651,0.6154,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),905.4,968.4,0.03
+Crinoidea_Eucladida,phenotypic_rate,386.21,0.5951,0.0628,0.4719,0.7182,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),977.9,903.4,0.03
+Crinoidea_Eucladida,phenotypic_rate,378.19,0.4702,0.0427,0.3861,0.5534,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1050.5,1050.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,370.14,0.3801,0.0254,0.33,0.4294,95CI,low,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1123.4,1156.6,0.03
+Crinoidea_Eucladida,phenotypic_rate,362.12,0.3902,0.0258,0.3394,0.4404,95CI,low,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1196.0,1144.6,0.03
+Crinoidea_Eucladida,phenotypic_rate,354.11,0.455,0.0321,0.392,0.5177,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1268.6,1068.4,0.03
+Crinoidea_Eucladida,phenotypic_rate,346.06,0.4702,0.0373,0.3971,0.5432,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1341.5,1050.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,338.05,0.4101,0.0347,0.3419,0.4778,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1414.0,1121.2,0.03
+Crinoidea_Eucladida,phenotypic_rate,330.02,0.6151,0.0388,0.539,0.691,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1486.7,879.8,0.03
+Crinoidea_Eucladida,phenotypic_rate,322.0,0.75,0.0559,0.6409,0.86,95CI,high,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1559.4,721.0,0.03
+Crinoidea_Eucladida,phenotypic_rate,313.96,0.69,0.0674,0.5577,0.8218,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1632.2,791.7,0.03
+Crinoidea_Eucladida,phenotypic_rate,305.97,0.42,0.0288,0.3632,0.4761,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1704.6,1109.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,297.91,0.46,0.0379,0.3852,0.5339,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1777.5,1062.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,289.85,0.5101,0.0492,0.4133,0.6061,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1850.5,1003.5,0.03
+Crinoidea_Eucladida,phenotypic_rate,281.86,0.4551,0.0481,0.3606,0.5492,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1922.9,1068.3,0.03
+Crinoidea_Eucladida,phenotypic_rate,273.84,0.4851,0.0782,0.3317,0.6384,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),1995.5,1032.9,0.03
+Crinoidea_Eucladida,phenotypic_rate,265.79,0.4701,0.1088,0.257,0.6834,95CI,background,Wright_2017_SI Figure S6; mass-extinction crop: data <= 443 Ma (end-Ordovician),2068.4,1050.6,0.03

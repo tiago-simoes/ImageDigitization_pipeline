@@ -1,0 +1,17 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Aves_stem,phenotypic_rate,152.6126,0.66657,0.36109,0.30549,1.02766,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,148.77978,1.50281,0.36109,1.14172,1.86389,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,142.94452,2.22766,0.36109,1.86657,2.58875,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,137.20543,2.74544,0.36109,2.38435,3.10652,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,133.18875,1.70985,0.20847,1.50138,1.91833,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,128.04795,0.90865,0.14741,0.76124,1.05606,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,122.22295,0.67074,0.10424,0.5665,0.77498,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,117.27889,0.53346,0.09483,0.43863,0.62828,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,114.33571,1.35665,0.51065,0.84599,1.8673,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,109.97098,0.46839,0.51065,-0.04226,0.97905,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,102.47076,1.32351,0.36109,0.96242,1.68459,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,87.90982,0.31396,0.22837,0.08559,0.54233,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,82.75263,0.54284,0.18054,0.3623,0.72338,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,79.49097,0.71851,0.25533,0.46318,0.97383,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,72.80357,0.72794,0.51065,0.21728,1.23859,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0
+Aves_stem,phenotypic_rate,68.43136,0.79634,0.36109,0.43525,1.15742,SE,"zhang_2022 (raw data zhang_2022_rates.csv: 103 nodes, ages=node_age_median, rates=rates; 5-Myr bin medians, SE from pooled robust SD=0.407)",0.0

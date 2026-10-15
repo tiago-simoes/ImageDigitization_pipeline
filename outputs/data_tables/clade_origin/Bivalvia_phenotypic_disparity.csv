@@ -1,0 +1,23 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Bivalvia,phenotypic_disparity,517.5,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,513.25,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,510.75,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,506.75,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,502.5,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,498.75,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,495.5,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,491.7,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,487.4,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,483.45,4.0,2.0,2.0,6.0,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,479.6,5.0,2.2361,2.7639,7.2361,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,475.35,10.0,3.1623,6.8377,13.1623,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,471.49,8.0,2.8284,5.1716,10.8284,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,467.7,11.0,3.3166,7.6834,14.3166,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,463.2,11.0,3.3166,7.6834,14.3166,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,459.7,10.0,3.1623,6.8377,13.1623,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,456.85,11.0,3.3166,7.6834,14.3166,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,453.75,13.0,3.6056,9.3944,16.6056,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,450.65,13.0,3.6056,9.3944,16.6056,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,448.21,11.0,3.3166,7.6834,14.3166,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,446.26,11.0,3.3166,7.6834,14.3166,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0
+Bivalvia,phenotypic_disparity,444.5,10.0,3.1623,6.8377,13.1623,Poisson,zhou_et_al_2023 Fig. 1a (blue: no. FGs),0.0

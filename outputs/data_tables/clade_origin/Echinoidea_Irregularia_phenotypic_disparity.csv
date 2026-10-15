@@ -1,0 +1,9 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Echinoidea_Irregularia,phenotypic_disparity,178.46,0.0082,0.0,0.0082,0.0082,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,172.3,0.0081,0.0,0.0081,0.0081,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,169.32,0.0111,0.0,0.0111,0.0111,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,167.16,0.011,0.0,0.011,0.011,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,164.84,0.0143,0.0,0.0143,0.0143,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,160.4,0.0129,0.0,0.0129,0.0129,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,154.71,0.0124,0.0,0.0124,0.0124,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019
+Echinoidea_Irregularia,phenotypic_disparity,148.62,0.014,0.0,0.014,0.014,none,boivin_et_al_2018 Fig. 3 bottom (top-most envelope = sum of all clades),0.019

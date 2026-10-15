@@ -1,0 +1,18 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Trilobita,phenotypic_rate,522.9768,0.5309,0.0946,0.4364,0.6255,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,520.735,0.5429,0.0658,0.4771,0.6087,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,518.8472,0.4557,0.0492,0.4064,0.5049,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,517.0713,0.4719,0.0546,0.4173,0.5265,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,514.9226,0.3939,0.0444,0.3495,0.4383,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,512.9417,0.5065,0.0526,0.4539,0.5591,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,510.9344,0.3883,0.0359,0.3524,0.4242,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,508.9798,0.4416,0.0467,0.3949,0.4883,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,506.9874,0.3466,0.0557,0.291,0.4023,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,505.009,0.4984,0.0482,0.4502,0.5466,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,503.2704,0.4628,0.0316,0.4312,0.4944,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,501.0057,0.4816,0.0504,0.4313,0.532,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,499.1553,0.4286,0.0453,0.3833,0.4739,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,497.2554,0.4753,0.0365,0.4388,0.5118,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,494.7428,0.5153,0.0705,0.4448,0.5858,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,493.0029,0.581,0.1115,0.4694,0.6925,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007
+Trilobita,phenotypic_rate,491.07,0.4857,0.0472,0.4385,0.533,SE,"paterson_et_al_2019 Fig. 3 (blue = discrete characters; 211 branch rates binned in 2-Myr bins, mean +/- SE, n>=3)",0.007

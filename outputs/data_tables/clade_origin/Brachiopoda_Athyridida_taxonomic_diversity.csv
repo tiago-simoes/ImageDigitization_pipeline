@@ -1,0 +1,14 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Brachiopoda_Athyridida,taxonomic_diversity,294.7,6.0,2.44949,3.55051,8.44949,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,286.905,10.0,3.16228,6.83772,13.16228,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,278.837,15.0,3.87298,11.12702,18.87298,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,266.961,17.0,4.12311,12.87689,21.12311,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,255.726,18.0,4.24264,13.75736,22.24264,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,249.299,5.0,2.23607,2.76393,7.23607,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,241.847,9.0,3.0,6.0,12.0,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,232.148,20.0,4.47214,15.52786,24.47214,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,218.404,14.0,3.74166,10.25834,17.74166,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,205.434,8.0,2.82843,5.17157,10.82843,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,197.127,3.0,1.73205,1.26795,4.73205,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,188.546,3.0,1.73205,1.26795,4.73205,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015
+Brachiopoda_Athyridida,taxonomic_diversity,179.447,2.0,1.41421,0.58579,3.41421,Poisson,guo_2024 Fig. 2d (Athyridida; dashed grey line = number of genera per time bin; vector PDF vertices),0.015

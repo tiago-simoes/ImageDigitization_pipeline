@@ -1,0 +1,23 @@
+Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
+Bivalvia,taxonomic_diversity,517.5,2.0,1.4142,0.5858,3.4142,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,513.25,2.0,1.4142,0.5858,3.4142,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,510.75,2.0,1.4142,0.5858,3.4142,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,506.75,2.0,1.4142,0.5858,3.4142,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,502.5,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,498.75,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,495.5,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,491.7,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,487.4,1.0,1.0,0.0,2.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,483.45,5.0,2.2361,2.7639,7.2361,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,479.6,23.0,4.7958,18.2042,27.7958,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,475.35,44.0,6.6332,37.3668,50.6332,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,471.49,37.0,6.0828,30.9172,43.0828,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,467.7,59.0,7.6811,51.3189,66.6811,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,463.2,56.0,7.4833,48.5167,63.4833,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,459.7,54.0,7.3485,46.6515,61.3485,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,456.85,62.0,7.874,54.126,69.874,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,453.75,64.0,8.0,56.0,72.0,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,450.65,75.01,8.6608,66.3492,83.6708,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,448.21,68.0,8.2462,59.7538,76.2462,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,446.26,70.0,8.3666,61.6334,78.3666,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
+Bivalvia,taxonomic_diversity,444.5,38.0,6.1644,31.8356,44.1644,Poisson,zhou_et_al_2023 Fig. 1a (black: no. genera),0.0
