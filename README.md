@@ -3,7 +3,7 @@
 All Python code that extracts data points directly from figures in published papers using PDF files (and raw data files)
 
 ```
-R/digitisation/
+code/digitization/
 ├── digitise_master.py     master file: shared functions + registry of scripts + runner
 ├── README.md              this file
 ├── source_papers/         one script per source paper (37 scripts)
@@ -13,13 +13,13 @@ R/digitisation/
 * **`digitise_master.py`**: the master file. It is
   1. the **shared library**: every helper used by more than one script (axis calibration, PDF vector-path reading,
      raster masks and tracing, regridding, node-rate binning, output writers, QC panels), each with a commented
-     explanation. The four former helper modules (`vcommon.py`, `rcommon.py`, `common.py`, `mcommon.py`) were merged into it;
+     explanation. 
   2. the **registry**: one entry per script with source paper, figure, method (vector / raster / raw / derived),
      output series and run order;
   3. the **runner**: list, run and check the scripts from the command line (below).
 * **`source_papers/`: one script per source paper**, named after the paper (`guo2024.py`, `foth2021.py`, ...). Each
   script starts with a header giving its step number, source figure, method, outputs and former file name. It then
-  adds `R/digitisation/` to the Python path and imports the shared functions with `from digitise_master import *`
+  adds `code/digitization/` to the Python path and imports the shared functions with `from digitise_master import *`
   (these two lines must stay at the top of any new script). Figure-specific values (tick positions, line colours,
   crop boxes) stay in the script, so each figure's extraction can be read and audited on its own.
 * **`utilities/`: the steps that serve all sources**: `extract_raster_figures.py` (runs first: saves the embedded
@@ -133,13 +133,6 @@ Groups: `close2019` (Close et al. 2019 locality data, steps 2-7, in this order),
 QC panels), `cutoff` (always last). `hopkins_smith2015.py` also writes
 `Echinoidea_Irregularia_phenotypic_rate_Fig1_allEchinoidea.csv` (all echinoids, Fig. 1), which is not used by the keys.
 
-## Reproducibility check (14 Oct 2026)
-
-All scripts were re-run from the inputs above in a clean scratch folder, before and after the reorganisation.
-233 of 235 output files (all 80 series and tables in `data_digitized/`, all extracted rasters, crops and QC panels)
-are byte-identical to the previous scripts' outputs. The two exceptions are the matplotlib summary PDFs in
-`data_digitized/digitisation/close2019_work/`, which differ only in their embedded creation date.
-`Squamata_stage_max_local_richness.csv` in Runs has fewer columns than the script now writes (values identical).
 
 ## Adding a new figure
 
@@ -158,66 +151,4 @@ The three batches of scripts write with slightly different rounding (`save_vert`
 `save_massext` 5); these writers are kept so that existing series are reproduced exactly. New scripts should use
 `save_series()`.
 
-## History
 
-* 8 Oct 2026: `zhang.py` (Zhang 2022 Fig. 3 branch-colour trace; replaced by the raw rates file
-  `zhang_2022_rates.csv` in `raw_data_convert.py`) and `caron.py` (Caron & Pie 2024, removed from the key) were
-  retired to `_superseded_Oct8/R/digitise_vert/`.
-* 9 Oct 2026, PI age cutoffs: Tetrapoda_stem rate and disparity <= 380 Ma (older points are not Tetrapoda; the rate
-  cutoff is applied to node ages in `raw_data_convert.py`); all Mammalia_early series <= 200 Ma (earliest crown
-  Mammalia). The scripts still write the full traced series and `age_cutoffs.py` truncates them; the pre-cutoff
-  series are in `_superseded_Oct9/data/`.
-* 14 Oct 2026: new sources for the mass-extinction key (`mass_extinction` group); all scripts gathered in this
-  folder, renamed by source and linked to `digitise_master.py`; the per-source scripts then moved to
-  `source_papers/` and the extraction, QC and cutoff steps to `utilities/`, so that the master file and this README
-  sit alone at the top of the folder.
-
-## Former file names
-
-The old folders (`R/digitise_vert/`, `R/digitise_invert/`, `R/digitise_close2019/`, `R/digitise_massext/`) and
-`R/digitise_wright2017_SI.py` were moved to `_superseded_Oct14/R/`. Older notes and logs may still use these names:
-
-| new name (in `R/digitisation/`) | formerly |
-|---|---|
-| `utilities/extract_raster_figures.py` | `R/digitise_vert/extract_images.py` |
-| `source_papers/close2019_1_extract_localities.py` | `R/digitise_close2019/extract.py` |
-| `source_papers/close2019_2_stage_richness.py` | `R/digitise_close2019/stages.py` |
-| `source_papers/close2019_3_max_richness.py` | `R/digitise_close2019/maxrich.py` |
-| `source_papers/close2019_4_squamata_extract.py` | `R/digitise_close2019/sq_extract.py` |
-| `source_papers/close2019_5_squamata_stages.py` | `R/digitise_close2019/sq_stage.py` |
-| `source_papers/close2019_6_squamata_plot.py` | `R/digitise_close2019/sq_plot.py` |
-| `source_papers/ghezelayagh2022_fig2.py` | `R/digitise_vert/ghez.py` |
-| `source_papers/ghezelayagh2022_edfig5e.py` | `R/digitise_vert/ghez5e.py` |
-| `source_papers/brownstein_griffin2026.py` | `R/digitise_vert/brown.py` |
-| `source_papers/yu2021.py` | `R/digitise_vert/yu.py` |
-| `source_papers/navalon2022.py` | `R/digitise_vert/navalon.py` |
-| `source_papers/quintero2024.py` | `R/digitise_vert/quintero24.py` |
-| `source_papers/alvarez_carretero2022.py` | `R/digitise_vert/alvarez.py` |
-| `source_papers/foth2021.py` | `R/digitise_vert/foth.py` |
-| `source_papers/sookias2026.py` | `R/digitise_vert/sookias.py` |
-| `source_papers/quintero2025.py` | `R/digitise_vert/quintero25.py` |
-| `source_papers/rawson2022.py` | `R/digitise_vert/rawson.py` |
-| `source_papers/crouch_tobias2022.py` | `R/digitise_vert/crouch.py` |
-| `source_papers/felice_goswami2017.py` | `R/digitise_vert/felice.py` |
-| `source_papers/close2015.py` | `R/digitise_vert/close15.py` |
-| `source_papers/goswami2022.py` | `R/digitise_vert/goswami.py` |
-| `source_papers/raw_data_convert.py` | `R/digitise_vert/raw_convert.py` |
-| `source_papers/zhou2023.py` | `R/digitise_invert/zhou.py` |
-| `source_papers/paterson2019.py` | `R/digitise_invert/paterson.py` |
-| `source_papers/novack_gottshall2022.py` | `R/digitise_invert/novack.py` |
-| `source_papers/hopkins_smith2015.py` | `R/digitise_invert/hopkins.py` |
-| `source_papers/boivin2018.py` | `R/digitise_invert/boivin.py` |
-| `source_papers/fan2020.py` | `R/digitise_invert/fan.py` |
-| `source_papers/wills1998.py` | `R/digitise_invert/wills.py` |
-| `source_papers/foote1993.py` | `R/digitise_invert/foote.py` |
-| `source_papers/wright2017.py` | `R/digitise_wright2017_SI.py` |
-| `source_papers/guo2024.py` | `R/digitise_massext/guo.py` |
-| `source_papers/whalen2020.py` | `R/digitise_massext/whalen.py` |
-| `source_papers/cole_hopkins2021.py` | `R/digitise_massext/cole_hopkins.py` |
-| `source_papers/lamsdell_selden2016.py` | `R/digitise_massext/lamsdell.py` |
-| `source_papers/halliday_goswami2016.py` | `R/digitise_massext/halliday.py` |
-| `source_papers/raw_data_squamata_crown.py` | `R/digitise_massext/squamata_raw.py` |
-| `utilities/qc_panels_vert.py` | `R/digitise_vert/assets.py` |
-| `utilities/qc_panels_invert.py` | `R/digitise_invert/crops.py` |
-| `utilities/qc_panels_massext.py` | `R/digitise_massext/crops.py` |
-| `utilities/age_cutoffs.py` | `R/digitise_vert/age_cutoffs.py` |
