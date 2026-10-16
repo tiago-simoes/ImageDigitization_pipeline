@@ -1,21 +1,20 @@
-"""lamsdell_selden2016.py -- step 36 of the digitisation protocol: lamsdell_selden_2016, Fig. 2, 4 [raster]
+"""lamsdell_selden2016.py -- step 36 of the digitisation pipeline: lamsdell_selden_2016, Fig. 2, 4 [raster]
 Method  : top edge of the black TDE area at stage-bin midpoints; SOV squares + error bars found by morphological opening
-Outputs : data_digitized/Eurypterida_taxonomic_diversity.csv, data_digitized/Eurypterida_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/lamsdell_selden2016.py from the Runs root, or python3 R/digitisation/digitise_master.py --run lamsdell_selden2016
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/lamsdell.py)
+Outputs : outputs/data_tables/clade_origin/Eurypterida_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Eurypterida_phenotypic_disparity.csv
+Run     : python code/source_papers/lamsdell_selden2016.py (from any folder), or python code/digitise_master.py --run lamsdell_selden2016
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Lamsdell & Selden 2016 (Evolution 71:95-110), Eurypterida. Raster figures (low-resolution JPEGs).
-  Fig. 2  species-level diversity: key = "solid black line" = taxonomic diversity estimate (TDE, black area; the grey
+  Fig. 2  species-level diversity: solid black line = taxonomic diversity estimate (TDE, black area; the grey
           area is the phylogenetic diversity estimate PDE, not used). Top edge of the black area traced per column
           (contiguous dark region above the zero line) and read at the stage-bin midpoints (bin edges = the alternating
           grey/white stage bands of the figure).                                      -> taxonomic_diversity
   Fig. 4  sum of variances (black squares + 95% CI error bars, epoch-level bins).     -> phenotypic_disparity
 x calibration: tick marks every 5 Myr (485 ... 255 Ma); y: axis tick marks.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 from PIL import Image
 from scipy import ndimage as ndi
 pdf = pymupdf.open(PDF + "lamsdell_selden_2016.pdf")

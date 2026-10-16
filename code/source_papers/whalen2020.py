@@ -1,22 +1,21 @@
-"""whalen2020.py -- step 34 of the digitisation protocol: whalen_2020, Fig. 2A, 2E [raster]
+"""whalen2020.py -- step 34 of the digitisation pipeline: whalen_2020, Fig. 2A, 2E [raster]
 Method  : blue richness line and black MPD line traced per pixel column (colour masks), averaged in 1-Myr bins
-Outputs : data_digitized/Ammonoidea_taxonomic_diversity.csv, data_digitized/Ammonoidea_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/whalen2020.py from the Runs root, or python3 R/digitisation/digitise_master.py --run whalen2020
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/whalen.py)
+Outputs : outputs/data_tables/clade_origin/Ammonoidea_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Ammonoidea_phenotypic_disparity.csv
+Run     : python code/source_papers/whalen2020.py (from any folder), or python code/digitise_master.py --run whalen2020
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Whalen et al. 2020 (Sci. Adv. 6:eabc2365) Fig. 2, Paleozoic ammonoids, ranged-through per-million-year data.
-Raster figure (embedded PNG, 1884 x 2341 px; extracted to data_digitized/digitisation/massext_img/whalen_fig2.png).
-  A  richness: BLUE line, right axis = total species in the AMMON database (key: right axis, blue line)
+Raster figure (embedded PNG, 1884 x 2341 px; extracted to outputs/intermediates/massext_img/whalen_fig2.png).
+  A  richness: BLUE line, right axis = total species in the AMMON database
   E  disparity: mean pairwise distance, solid BLACK line (left axis)
 Calibration: x = centres of the age labels 400 ... 260 Ma (linear fit); y = label centres (A right axis 600/400/200)
 and grid lines (E: 2, 1.5, 1, 0.5). Curves traced per pixel column (median of the line pixels), then averaged in
 1-Myr bins centred on whole Ma (the data are per-million-year); bins without visible line pixels (hidden behind the
 black line in A, or behind period boundary lines in E) are linearly interpolated from neighbouring bins.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 from PIL import Image
 src = IMG + "whalen_fig2.png"
 if not os.path.exists(src):

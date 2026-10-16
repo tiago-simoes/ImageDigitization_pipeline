@@ -1,14 +1,13 @@
-"""halliday_goswami2016.py -- step 37 of the digitisation protocol: halliday_goswami_2016, Fig. 4 [raster]
+"""halliday_goswami2016.py -- step 37 of the digitisation pipeline: halliday_goswami_2016, Fig. 4 [raster]
 Method  : red/black markers of six MPT sets isolated by morphological opening and pooled per bin (median, min-max)
-Outputs : data_digitized/Placentalia_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/halliday_goswami2016.py from the Runs root, or python3 R/digitisation/digitise_master.py --run halliday_goswami2016
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/halliday.py)
+Outputs : outputs/data_tables/clade_origin/Placentalia_phenotypic_disparity.csv
+Run     : python code/source_papers/halliday_goswami2016.py (from any folder), or python code/digitise_master.py --run halliday_goswami2016
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Halliday & Goswami 2016 (Biol. J. Linn. Soc. 118:152-168) Fig. 4: mean pairwise distance (MPD) of eutherian
 morphologies per time bin, for six sets of MPTs (red = discrete-continuous, black = discrete only; circles /
 triangles / squares = minimum / full / Purgatorius constraint). Raster (JPEG 623 x 379 px).
-Key: "all lines; pooling disparity uncertainty among all lines" -> per time bin, all plotted markers are pooled:
+All six lines are pooled: per time bin, all plotted markers are combined into
 Value = median across lines, Err_lo / Err_hi = min / max across lines (treated as a 95% interval), as for the
 Placentalia rates (Goswami 2022). Markers are isolated by a 3x3 morphological opening (removes the 1-px lines);
 overlapping markers are split into their top / centre / bottom marker positions.
@@ -16,9 +15,9 @@ x calibration: the figure has no age ticks ("Time before present"; geoscale). Ag
 boundaries of the time-scale bar (GTS2012: 145.0, 100.5, 66.0, 33.9, 23.03, 5.33 Ma); the six lines share the time-bin x positions,
 so marker blobs are clustered in x (3-px tolerance) and each cluster is one time bin. y calibration: tick marks 0.6-1.2.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 from PIL import Image
 from scipy import ndimage as ndi
 src = IMG + "halliday_fig4.jpg"

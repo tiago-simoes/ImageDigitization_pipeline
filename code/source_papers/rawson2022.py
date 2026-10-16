@@ -1,16 +1,15 @@
-"""rawson2022.py -- step 18 of the digitisation protocol: rawson_2022, Fig. 5A [raster]
+"""rawson2022.py -- step 18 of the digitisation pipeline: rawson_2022, Fig. 5A [raster]
 Method  : black skull DTT line traced with a darkness mask; short hidden segments interpolated
-Outputs : data_digitized/Tetrapoda_stem_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/rawson2022.py from the Runs root, or python3 R/digitisation/digitise_master.py --run rawson2022
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/rawson.py)
+Outputs : outputs/data_tables/clade_origin/Tetrapoda_stem_phenotypic_disparity.csv
+Run     : python code/source_papers/rawson2022.py (from any folder), or python code/digitise_master.py --run rawson2022
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"rawson_fig5.png"); g=a.max(2)
 X,sx=lin([458.5,581,703.5,826.5],[400,350,300,250]); Y,sy=lin([521,396,271.5,147],[0,1,2,3])
 m=np.zeros(g.shape,bool); sub=a[90:537,388:850]; m[90:537,388:850]=(g[90:537,388:850]<75)|((sub[...,0]<160)&(sub[...,1]<45)&(sub[...,2]<45))   # black, or black under the translucent red Romer's-gap bar

@@ -1,16 +1,15 @@
-"""sookias2026.py -- step 16 of the digitisation protocol: sookias_2026, Fig. 1b, 1f, 1h [raster]
+"""sookias2026.py -- step 16 of the digitisation pipeline: sookias_2026, Fig. 1b, 1f, 1h [raster]
 Method  : black lineage step lines of three sub-panels traced with a darkness mask (dashed zero line removed; relative units)
-Outputs : data_digitized/Archosauromorpha_stem_taxonomic_diversity.csv, data_digitized/Dinosauria_early_taxonomic_diversity_PyRate.csv, data_digitized/Theropoda_non-avian_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/sookias2026.py from the Runs root, or python3 R/digitisation/digitise_master.py --run sookias2026
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/sookias.py)
+Outputs : outputs/data_tables/clade_origin/Archosauromorpha_stem_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Dinosauria_early_taxonomic_diversity_PyRate.csv, outputs/data_tables/clade_origin/Theropoda_non-avian_taxonomic_diversity.csv
+Run     : python code/source_papers/sookias2026.py (from any folder), or python code/digitise_master.py --run sookias2026
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"sookias_fig1.png"); g=a.max(2)
 X,sx=lin([274.5,429.25,584.0,738.5],[240,220,200,180])     # sub-panel ticks (same time axis as Fig. 1a: 240-180 Ma)
 src=("sookias_2026 Fig. 1{p} left plot ({lab}): black solid line = number of lineages through time (PyRate); "

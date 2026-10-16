@@ -1,16 +1,15 @@
-"""foth2021.py -- step 15 of the digitisation protocol: foth_2021, Fig. 9A rows 1-3 [raster]
+"""foth2021.py -- step 15 of the digitisation pipeline: foth_2021, Fig. 9A rows 1-3 [raster]
 Method  : coloured disparity lines of three panels traced with colour masks (largest component, per-column centre)
-Outputs : data_digitized/Archosauromorpha_stem_phenotypic_disparity.csv, data_digitized/Dinosauria_early_phenotypic_disparity.csv, data_digitized/Theropoda_non-avian_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/foth2021.py from the Runs root, or python3 R/digitisation/digitise_master.py --run foth2021
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/foth.py)
+Outputs : outputs/data_tables/clade_origin/Archosauromorpha_stem_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Dinosauria_early_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Theropoda_non-avian_phenotypic_disparity.csv
+Run     : python code/source_papers/foth2021.py (from any folder), or python code/digitise_master.py --run foth2021
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 src="foth_2021 Fig. 9A (cranial disparity, sum of variance; 'gradualistic' model; raster panel, colour-traced)"
 P=[ # file, clade, line colour, plot box, x label centres->ages, y tick rows->values
  ("foth9A_r1.png","Archosauromorpha_stem","purple line (stem-Archosauria), row 1 left",(104,56,152),(85,48,590,345),

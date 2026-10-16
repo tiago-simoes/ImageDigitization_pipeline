@@ -1,17 +1,15 @@
-"""close2019_4_squamata_extract.py -- step 5 of the digitisation protocol: close_2019, Fig. 5c [raster]
+"""close2019_4_squamata_extract.py -- step 5 of the digitisation pipeline: close_2019, Fig. 5c [raster]
 Method  : isolates the green squamate dots of Fig. 5c (raster) with a colour mask and records their upper envelope
 Note    : squamate dot envelope (green mask)
-Run     : python3 R/digitisation/source_papers/close2019_4_squamata_extract.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_4_squamata_extract
-(formerly R/digitise_close2019/sq_extract.py)
+Run     : python code/source_papers/close2019_4_squamata_extract.py (from any folder), or python code/digitise_master.py --run close2019_4_squamata_extract
 """
 import numpy as np, pandas as pd
 from PIL import Image
 from scipy import ndimage as ndi
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
-import os; os.makedirs(WORK+"f5",exist_ok=True)
-a=np.asarray(Image.open(WORK+"f5/img-000.jpg").convert("RGB")).astype(int)
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
+a=np.asarray(Image.open(CLOSE2019+"close2019_fig5.jpg").convert("RGB")).astype(int)
 X0,Y0=330.90655517578125,64.2503662109375; SX=895/(545.5865478515625-X0); SY=1297/(375.5303649902344-Y0)
 px=lambda xpt:(xpt-X0)*SX; py=lambda ypt:(ypt-Y0)*SY
 # calibration (pt) -> pixels
@@ -48,4 +46,4 @@ c["py"]=c.ytop+r
 c["Age_Ma"]=ax_+bx*c.px; c["Richness_raw"]=ay+by*c.py; c["Richness"]=c.Richness_raw.round().clip(lower=1).astype(int)
 print("envelope dots",len(c), "age range",c.Age_Ma.max().round(1),c.Age_Ma.min().round(1),"max",c.Richness.max())
 c.round(3).to_csv(WORK+"close2019_fig5c_squamata_envelope_dots.csv",index=False)
-np.save(WORK+"f5/green_mask.npy",green)
+np.save(WORK+"green_mask.npy",green)

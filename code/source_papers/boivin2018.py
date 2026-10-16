@@ -1,13 +1,12 @@
-"""boivin2018.py -- step 28 of the digitisation protocol: boivin-et_al_2018, Fig. 3 [vector]
+"""boivin2018.py -- step 28 of the digitisation pipeline: boivin-et_al_2018, Fig. 3 [vector]
 Method  : top-most envelope of the stacked areas (sum of all clades) read from vector paths
-Outputs : data_digitized/Echinoidea_Irregularia_phenotypic_disparity.csv, data_digitized/Echinoidea_Irregularia_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/boivin2018.py from the Runs root, or python3 R/digitisation/digitise_master.py --run boivin2018
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/boivin.py)
+Outputs : outputs/data_tables/clade_origin/Echinoidea_Irregularia_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Echinoidea_Irregularia_taxonomic_diversity.csv
+Run     : python code/source_papers/boivin2018.py (from any folder), or python code/digitise_master.py --run boivin2018
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 p=pymupdf.open(PDF+"boivin-et_al_2018.pdf")[7]; dr=p.get_drawings()
 X,sx=lin([225.95,297.63,388.24,545.26],[182.7,174.2,163.5,145])
 for par,yr,(yp,yv) in [("taxonomic_diversity",(70,281.5),([280.53,239.11,197.34,155.56,113.78],[0,50,100,150,200])),

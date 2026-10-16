@@ -1,17 +1,16 @@
-"""goswami2022.py -- step 22 of the digitisation protocol: goswami_2022, Fig. 3A [raster]
+"""goswami2022.py -- step 22 of the digitisation pipeline: goswami_2022, Fig. 3A [raster]
 Method  : six root-age rate lines traced by colour and pooled per 1-Myr bin (median; min-max as 95% interval)
-Outputs : data_digitized/Placentalia_phenotypic_rate.csv
+Outputs : outputs/data_tables/clade_origin/Placentalia_phenotypic_rate.csv
 Note    : 6 root-age lines pooled
-Run     : python3 R/digitisation/source_papers/goswami2022.py from the Runs root, or python3 R/digitisation/digitise_master.py --run goswami2022
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/goswami.py)
+Run     : python code/source_papers/goswami2022.py (from any folder), or python code/digitise_master.py --run goswami2022
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"goswami_fig3.png")
 X,sx=lin([97.5,239.5,382,524.5,666.5],[100,75,50,25,0]); Y,sy=lin([146,253,360.75,468.25,575.75],[.5,.4,.3,.2,.1])
 L={"70-75 Ma":((175,30,35),70),"75-80 Ma":((245,225,80),80),"80-85 Ma":((50,50,50),60),
@@ -48,7 +47,7 @@ for lab,(ref,tol) in L.items():
     print(lab,"cols",len(t),"span %.1f-%.1f"%(s.Age_Ma.max(),s.Age_Ma.min()))
 ax.legend(fontsize=7); ax.set_title("Placentalia rates (Goswami 2022 Fig. 3A) - QC: traced lines"); fig.savefig(FIG+"Placentalia_phenotypic_rate_QC_digitised.png",dpi=110,bbox_inches="tight")
 D=pd.concat(ser); D["k"]=np.round(D.Age_Ma)
-D.to_csv("data_digitized/digitisation/goswami_lines.csv",index=False)
+D.to_csv(WORK+"goswami_lines.csv",index=False)
 s=D.groupby("k").agg(Age_Ma=("k","first"),Value=("Value","median"),Err_lo=("Value","min"),Err_hi=("Value","max"),n=("Value","size")).reset_index(drop=True)
 s["Value_err"]=(s.Err_hi-s.Err_lo)/3.92; print(s.n.value_counts().sort_index().to_dict())
 src=("goswami_2022 Fig. 3A: rates of cranial evolution through time, all 6 root-age lines (70-75 ... 95-100 Ma) traced (raster) and pooled per 1-Myr bin: "

@@ -1,17 +1,15 @@
-"""close2019_6_squamata_plot.py -- step 7 of the digitisation protocol: close_2019, Fig. 5c [qc]
+"""close2019_6_squamata_plot.py -- step 7 of the digitisation pipeline: close_2019, Fig. 5c [qc]
 Method  : summary plot of squamates vs all non-flying tetrapods; source crop + QC panel
 Note    : summary plots + QC panel
-Run     : python3 R/digitisation/source_papers/close2019_6_squamata_plot.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_6_squamata_plot
-(formerly R/digitise_close2019/sq_plot.py)
+Run     : python code/source_papers/close2019_6_squamata_plot.py (from any folder), or python code/digitise_master.py --run close2019_6_squamata_plot
 """
 import numpy as np, pandas as pd, matplotlib, pymupdf
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
-import os; os.makedirs(WORK+"f5",exist_ok=True)
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
 s=pd.read_csv(DAT+"Squamata_stage_max_local_richness.csv"); a=pd.read_csv(DAT+"Tetrapoda_nonflying_stage_max_local_richness.csv")
 PER=[("D",382.7,358.9,"#CB8C37"),("C",358.9,298.9,"#67A599"),("P",298.9,251.902,"#F04028"),("Tr",251.902,201.4,"#812B92"),("J",201.4,145.0,"#34B2C9"),
      ("K",145.0,66.0,"#7FC64E"),("Pg",66.0,23.03,"#FD9A52"),("Ng",23.03,2.58,"#FFE619"),("Q",2.58,0,"#F9F97F")]
@@ -38,8 +36,7 @@ fig.savefig(WORK+"Squamata_max_local_richness_Close2019.png",dpi=300,bbox_inches
 F=PDF
 pymupdf.open(F)[3].get_pixmap(dpi=400,clip=pymupdf.Rect(318,262,548,392)).save(QC+"Squamata_diversity_Close2019_Fig5c.png")
 fig,q=plt.subplots(1,2,figsize=(13,4.4),gridspec_kw=dict(width_ratios=[1.1,1]))
-import os
-if os.path.exists(WORK+"f5/qc_tops_zoom.png"): q[0].imshow(Image.open(WORK+"f5/qc_tops_zoom.png"))
+if os.path.exists(FIGIMG+"close_2019_Fig5c_dot_tops_zoom.png"): q[0].imshow(Image.open(FIGIMG+"close_2019_Fig5c_dot_tops_zoom.png"))
 q[0].axis("off"); q[0].set_title("Fig. 5c raster (zoom): detected green dot tops (red rings)",fontsize=8)
 q[1].plot(s.Mid_Ma,s.Max_local_richness,"o-",color=C3,ms=3); q[1].invert_xaxis(); q[1].set_xlabel("Age (Ma)"); q[1].set_ylabel("Max species per locality"); q[1].set_title("Stage maxima from detected tops",fontsize=8)
 fig.tight_layout(); fig.savefig(QC+"Squamata_diversity_Close2019_Fig5c_QC_digitised.png",dpi=110)

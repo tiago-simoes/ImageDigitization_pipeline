@@ -1,16 +1,15 @@
-"""felice_goswami2017.py -- step 20 of the digitisation protocol: felice_goswami_2017, Fig. 1C [raster]
+"""felice_goswami2017.py -- step 20 of the digitisation pipeline: felice_goswami_2017, Fig. 1C [raster]
 Method  : black whole-skull rate line traced; segments hidden beneath the module lines interpolated
-Outputs : data_digitized/Aves_crown_phenotypic_rate_continuous_data_GMM.csv
-Run     : python3 R/digitisation/source_papers/felice_goswami2017.py from the Runs root, or python3 R/digitisation/digitise_master.py --run felice_goswami2017
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/felice.py)
+Outputs : outputs/data_tables/clade_origin/Aves_crown_phenotypic_rate_continuous_data_GMM.csv
+Run     : python code/source_papers/felice_goswami2017.py (from any folder), or python code/digitise_master.py --run felice_goswami2017
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"felice_fig1.png"); g=a.max(2); sat=a.max(2)-a.min(2)
 xt=[98,138,177.5,217.5,257,297,337,377,416.5,456,496,536,576,615.5,655]
 X,sx=lin(xt,list(range(70,-1,-5))); Y,sy=lin([761,888.5,1016,1143],[4,3,2,1])

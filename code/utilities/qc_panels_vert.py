@@ -1,20 +1,19 @@
-"""qc_panels_vert.py -- step 39 of the digitisation protocol [qc]
-Method  : source crops + QC panels (red line, grey band) in data_raw/<parameter folder>/
+"""qc_panels_vert.py -- step 39 of the digitisation pipeline [qc]
+Method  : source crops + QC panels (red line, grey band) in outputs/figures/<parameter folder>/
 Note    : source crops + QC panels of the vertebrate figure series
-Run     : python3 R/digitisation/utilities/qc_panels_vert.py from the Runs root, or python3 R/digitisation/digitise_master.py --run qc_panels_vert
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/assets.py)
+Run     : python code/utilities/qc_panels_vert.py (from any folder), or python code/digitise_master.py --run qc_panels_vert
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
-Source-figure crops + QC panels (source | digitised series) for the vertebrate key rows (figure-derived series only).
+Source-figure crops + QC panels (source | digitised series) for the vertebrate figure series (not the raw-data series).
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import re
 from PIL import Image
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 V=""
-IMG="data_digitized/digitisation/vert_img/"; DAT="data_digitized/"; OUTD="data_raw/"
+IMG=IMG_VERT; DAT=OUT; OUTD=FIGS
 FOLD={"phenotypic_rate":"phenotypic_rates","phenotypic_disparity":"phenotypic_disparity","taxonomic_diversity":"taxonomic_diversity"}
 SHORT={"phenotypic_rate":"rates","phenotypic_disparity":"disparity","taxonomic_diversity":"diversity"}
 def pdfclip(f,pg,rect,dpi=300):

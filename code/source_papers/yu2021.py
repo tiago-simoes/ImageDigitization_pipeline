@@ -1,14 +1,13 @@
-"""yu2021.py -- step 11 of the digitisation protocol: yu_2021_SI, Fig. S40 [vector]
+"""yu2021.py -- step 11 of the digitisation pipeline: yu_2021_SI, Fig. S40 [vector]
 Method  : net-diversification rate bars (vector) per time bin with SE; split at 100 Ma into Aves_stem / Aves_crown
-Outputs : data_digitized/Aves_stem_taxonomic_diversity.csv, data_digitized/Aves_crown_taxonomic_diversity.csv
-Note    : split at 100 Ma (PI)
-Run     : python3 R/digitisation/source_papers/yu2021.py from the Runs root, or python3 R/digitisation/digitise_master.py --run yu2021
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/yu.py)
+Outputs : outputs/data_tables/clade_origin/Aves_stem_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Aves_crown_taxonomic_diversity.csv
+Note    : split at 100 Ma
+Run     : python code/source_papers/yu2021.py (from any folder), or python code/digitise_master.py --run yu2021
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 p=pymupdf.open(A+"yu_2021_SI.pdf")[62]; dr=p.get_drawings()
 xt=[479.46,462.3,445.14,427.98,410.81,393.65,376.49,359.33,342.16,325.0,307.84,290.67,273.51,256.34,239.18,222.02,204.94,187.78,170.62,153.45,136.29,119.13,101.97]
 X,sx=lin(xt,list(range(0,221,10))); Y,sy=lin([456.84,427.83,398.82,369.82,340.81,311.8,282.78],[0,.05,.10,.15,.20,.25,.30])
@@ -31,7 +30,7 @@ for x0,x1,y in H:
     rows.append(dict(occluded=occl,Age_old=X(x0),Age_young=X(x1),Age_Ma=X(xm),Value=Y(y),Err_hi=Y(top),Err_lo=Y(bot),nbars=len(bars)))
 d=pd.DataFrame(rows); d["Value_err"]=(d.Err_hi-d.Err_lo)/2
 print("cal",sx,sy); print(d.round(3).to_string())
-d.to_csv("data_digitized/digitisation/yu_S40_bins.csv",index=False)
-src="yu_2021_SI Fig. S40 (solid red line = net diversification rate of birds, Myr^-1, step line per time bin; shaded bars = interval, treated as +/-1 error); split at 100 Ma as instructed by PI"
+d.to_csv(WORK+"yu_S40_bins.csv",index=False)
+src="yu_2021_SI Fig. S40 (solid red line = net diversification rate of birds, Myr^-1, step line per time bin; shaded bars = interval, treated as +/-1 error); split at 100 Ma"
 save(d[d.Age_Ma>100],"Aves_stem","taxonomic_diversity","SE",src+" - part older than 100 Ma",sx)
 save(d[d.Age_Ma<=100],"Aves_crown","taxonomic_diversity","SE",src+" - part 100 Ma and younger",sx)

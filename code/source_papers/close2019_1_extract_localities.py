@@ -1,13 +1,12 @@
-"""close2019_1_extract_localities.py -- step 2 of the digitisation protocol: close_2019, Fig. 1a [vector]
+"""close2019_1_extract_localities.py -- step 2 of the digitisation pipeline: close_2019, Fig. 1a [vector]
 Method  : reads the locality points of Fig. 1a from the vector PDF and calibrates age and richness on the axis ticks
-Note    : locality richness points -> digitisation/close2019_fig1a_localities.csv
-Run     : python3 R/digitisation/source_papers/close2019_1_extract_localities.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_1_extract_localities
-(formerly R/digitise_close2019/extract.py)
+Note    : locality richness points -> outputs/intermediates/close2019/close2019_fig1a_localities.csv; source crop + QC panel
+Run     : python code/source_papers/close2019_1_extract_localities.py (from any folder), or python code/digitise_master.py --run close2019_1_extract_localities
 """
 import pymupdf, numpy as np, pandas as pd
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
 F=PDF
 p=pymupdf.open(F)[1]
 bx,ax_=np.polyfit([336.44,388.62,440.81,493.0,545.19],[400,300,200,100,0],1)
@@ -31,3 +30,15 @@ res=d.Richness_raw-d.Richness
 print("n dots",len(d), d.type.value_counts().to_dict()); print("integer residual (species) mean abs",round(res.abs().mean(),3),"max",round(res.abs().max(),3))
 print("age range",d.Age_Ma.min().round(2),d.Age_Ma.max().round(2),"richness range",d.Richness.min(),d.Richness.max())
 d.round(4).to_csv(DIG+"close2019_fig1a_localities.csv",index=False)
+# source crop + QC panel (source | re-plot of the extracted dots)
+import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+from PIL import Image
+crop=QC+"Tetrapoda_nonflying_diversity_Close2019_Fig1a.png"
+p.get_pixmap(dpi=400,clip=pymupdf.Rect(300,50,552,320)).save(crop)
+fig,q=plt.subplots(1,2,figsize=(13,4.6),gridspec_kw=dict(width_ratios=[1,1.55]))
+q[0].imshow(Image.open(crop)); q[0].axis("off"); q[0].set_title("Source: Close et al. 2019 Fig. 1a",fontsize=8)
+st_,ex_=d[d.type=="standard"],d[d.type=="exceptional"]
+q[1].scatter(st_.Age_Ma,st_.Richness,s=3,color="#b5b8bf",lw=0); q[1].scatter(ex_.Age_Ma,ex_.Richness,s=12,color="red",lw=0)
+q[1].set_xlim(410,-3); q[1].set_xlabel("Age (Ma)"); q[1].set_ylabel("Species richness")
+q[1].set_title(f"Re-plot of extracted vector dots (n={len(d)}; {len(ex_)} exceptional)",fontsize=9)
+fig.tight_layout(); fig.savefig(crop.replace(".png","_QC_digitised.png"),dpi=110); plt.close(fig)

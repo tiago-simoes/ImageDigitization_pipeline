@@ -1,16 +1,19 @@
-"""wright2017.py -- step 32 of the digitisation protocol: Wright_2017_SI, Figs S6, S8, S10 [raster]
-Method  : markers and error-bar ends detected in the source crops (morphological opening, peak detection); calibration on all ticks
-Outputs : data_digitized/Crinoidea_Eucladida_phenotypic_rate.csv, data_digitized/Crinoidea_Eucladida_phenotypic_disparity.csv, data_digitized/Crinoidea_Eucladida_taxonomic_diversity.csv
-Note    : reads the source crops in data_raw/; writes calibration_ticks.csv and metaDigitise_style_output.csv
-Run     : python3 R/digitisation/source_papers/wright2017.py from the Runs root, or python3 R/digitisation/digitise_master.py --run wright2017
-(formerly R/digitise_wright2017_SI.py)
+"""wright2017.py -- step 32 of the digitisation pipeline: Wright_2017_SI, Figs S6, S8, S10 [raster]
+Method  : markers and error-bar ends detected in the SI figure images (morphological opening, peak detection); calibration on all ticks
+Outputs : outputs/data_tables/clade_origin/Crinoidea_Eucladida_phenotypic_rate.csv, outputs/data_tables/clade_origin/Crinoidea_Eucladida_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Crinoidea_Eucladida_taxonomic_diversity.csv
+Inputs  : articles_PDF/figure_images/wright_2017_SI_FigS6.png, _FigS8.png, _FigS10.png (crops of the SI figures)
+Note    : copies each input image to outputs/figures/<parameter>/ and draws its QC image there (detected markers, bars
+          and ticks); writes calibration_ticks.csv and metaDigitise_style_output.csv to outputs/intermediates/
+Run     : python code/source_papers/wright2017.py (from any folder), or python code/digitise_master.py --run wright2017
 
-Automated metaDigitise-equivalent extraction for Wright (2017) SI Figs S6, S8, S10.
+Automated extraction for Wright (2017) SI Figs S6, S8, S10, with the output fields of metaDigitise.
 Calibration: least-squares linear fit of pixel->value on ALL labelled axis ticks
 (metaDigitise uses 2 clicked calibration points; using all ticks is more robust and
 gives a calibration residual). Points: marker centroids; error bars: bar-end pixels.
 """
-import numpy as np, pandas as pd, json, os
+import numpy as np, pandas as pd, json, os, sys, shutil
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import FIGIMG, FIGS, OUT, WORK                               # paths (digitise_master.py, section 1)
 from PIL import Image, ImageDraw
 from scipy import ndimage as ndi
 from skimage.morphology import disk, opening
@@ -50,20 +53,21 @@ def bar_end(blk,cx,cy,direction,r0,halfw=2,gap=3,stop=None):
     return last
 
 FIG={
- "rates":dict(file="Crinoidea_Eucladida_rates_Wright2017_FigS6.png",folder="phenotypic_rates",
+ "rates":dict(src="wright_2017_SI_FigS6.png",file="Crinoidea_Eucladida_rates_Wright2017_FigS6.png",folder="phenotypic_rates",
    fig="Figure S6",param="phenotypic_rate",ylab="Rate (# changes / Lmy)",
    xr=(1424,1445),yc=(225,246),xv=[450,400,350,300,250],yv=[1.2,1.0,0.8,0.6,0.4,0.2],
    err="95CI"),
- "disparity":dict(file="Crinoidea_Eucladida_disparity_Wright2017_FigS8.png",folder="phenotypic_disparity",
+ "disparity":dict(src="wright_2017_SI_FigS8.png",file="Crinoidea_Eucladida_disparity_Wright2017_FigS8.png",folder="phenotypic_disparity",
    fig="Figure S8",param="phenotypic_disparity",ylab="Disparity (mean pairwise Gower)",
    xr=(1268,1300),yc=(335,372),xv=[450,400,350,300,250],yv=[.7,.6,.5,.4,.3,.2,.1,0],err="SE"),
- "diversity":dict(file="Crinoidea_Eucladida_diversity_Wright2017_FigS10.png",folder="taxonomic_diversity",
+ "diversity":dict(src="wright_2017_SI_FigS10.png",file="Crinoidea_Eucladida_diversity_Wright2017_FigS10.png",folder="taxonomic_diversity",
    fig="Figure S10",param="taxonomic_diversity",ylab="Genus richness",
    xr=(1422,1450),yc=(340,375),xv=[450,400,350,300,250],yv=[50,40,30,20,10,0],err="SE"),
 }
 calrows=[]; tidy=[]; md=[]
 for k,c in FIG.items():
-    im=Image.open(os.path.join("data_raw",c["folder"],c["file"])).convert("RGB"); a=np.asarray(im).astype(int)
+    shutil.copyfile(FIGIMG+c["src"],os.path.join(FIGS,c["folder"],c["file"]))      # source image next to its QC image
+    im=Image.open(FIGIMG+c["src"]).convert("RGB"); a=np.asarray(im).astype(int)
     blk=a.max(2)<110
     tx,ty=ticks(blk,c["xr"],c["yc"])
     assert len(tx)==len(c["xv"]) and len(ty)==len(c["yv"]),(k,tx,ty)
@@ -121,11 +125,11 @@ for k,c in FIG.items():
         dr.line([cx+14,top,cx+14,bot],fill=(255,0,200),width=3)
     for p in tx: dr.line([p,c["xr"][0]-30,p,c["xr"][1]+30],fill=(0,170,0),width=2)
     for p in ty: dr.line([c["yc"][0]-30,p,c["yc"][1]+30,p],fill=(0,170,0),width=2)
-    im.save(os.path.join("data_raw",c["folder"],c["file"].replace(".png","_QC_digitised.png")))
+    im.save(os.path.join(FIGS,c["folder"],c["file"].replace(".png","_QC_digitised.png")))
     print(k,len(pts),"cal RMSE x(Ma)=%.2f y=%.4f"%cal_sd)
-pd.DataFrame(calrows,columns=["figure","axis","pixel","value","residual"]).to_csv("data_digitized/digitisation/calibration_ticks.csv",index=False)
-T=pd.DataFrame(tidy); T.to_csv("data_digitized/digitisation/wright2017_all_tidy.csv",index=False)
-pd.DataFrame(md).to_csv("data_digitized/digitisation/metaDigitise_style_output.csv",index=False)
+pd.DataFrame(calrows,columns=["figure","axis","pixel","value","residual"]).to_csv(WORK+"calibration_ticks.csv",index=False)
+T=pd.DataFrame(tidy); T.to_csv(WORK+"wright2017_all_tidy.csv",index=False)
+pd.DataFrame(md).to_csv(WORK+"metaDigitise_style_output.csv",index=False)
 for p,g in T.groupby("Parameter"):
-    g.to_csv(f"data_digitized/Crinoidea_Eucladida_{p}.csv",index=False)
+    g.to_csv(f"{OUT}Crinoidea_Eucladida_{p}.csv",index=False)
 pd.set_option("display.width",200); print(T.drop(columns=["Source","Clade"]).to_string())

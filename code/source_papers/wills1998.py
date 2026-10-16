@@ -1,15 +1,14 @@
-"""wills1998.py -- step 30 of the digitisation protocol: wills_1998, Fig. 7a [raster]
+"""wills1998.py -- step 30 of the digitisation pipeline: wills_1998, Fig. 7a [raster]
 Method  : light-grey upper envelope traced in the raster; ages calibrated on Harland et al. 1990 period boundaries
-Outputs : data_digitized/Pancrustacea_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/wills1998.py from the Runs root, or python3 R/digitisation/digitise_master.py --run wills1998
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/wills.py)
+Outputs : outputs/data_tables/clade_origin/Pancrustacea_phenotypic_disparity.csv
+Run     : python code/source_papers/wills1998.py (from any folder), or python code/digitise_master.py --run wills1998
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 from PIL import Image
-a=np.asarray(Image.open(IMG+'wills-001.png')).astype(float)
+a=np.asarray(Image.open(IMG+'wills_1998_p26.png')).astype(float)   # PDF p. 26 image (extract_raster_figures.py)
 print("grey levels sample", np.percentile(a[100:120,95:130],[5,50,95]), np.percentile(a[300:400,300:320],[5,50,95]))
 lines=[86.4,140.6,201.6,227.6,272.6,330.5,368.4,401.4,456.6,468.3,529.0,581.6,586.6]
 X,sx=lin([86.4,140.6,201.6,227.6,272.6,330.5,368.4,401.4,456.6,529.0,586.6],[570,510,439,409,363,290,245,208,146,65,0])

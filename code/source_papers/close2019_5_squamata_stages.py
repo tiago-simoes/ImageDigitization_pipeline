@@ -1,17 +1,15 @@
-"""close2019_5_squamata_stages.py -- step 6 of the digitisation protocol: close_2019, Fig. 5c [derived]
+"""close2019_5_squamata_stages.py -- step 6 of the digitisation pipeline: close_2019, Fig. 5c [derived]
 Method  : highest dot top per ICS stage = maximum local richness of squamates (+/-1 species reading error)
-Outputs : data_digitized/Squamata_stage_max_local_richness.csv, data_digitized/Squamata_max_local_richness.csv
+Outputs : outputs/data_tables/clade_origin/Squamata_stage_max_local_richness.csv, outputs/data_tables/clade_origin/Squamata_max_local_richness.csv
 Note    : max local richness of squamates per stage
-Run     : python3 R/digitisation/source_papers/close2019_5_squamata_stages.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_5_squamata_stages
-(formerly R/digitise_close2019/sq_stage.py)
+Run     : python code/source_papers/close2019_5_squamata_stages.py (from any folder), or python code/digitise_master.py --run close2019_5_squamata_stages
 """
 import numpy as np, pandas as pd
 from PIL import Image
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
-import os; os.makedirs(WORK+"f5",exist_ok=True)
-green=np.load(WORK+"f5/green_mask.npy")
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
+green=np.load(WORK+"green_mask.npy")
 X0,Y0=330.90655517578125,64.2503662109375; SX=895/(545.5865478515625-X0); SY=1297/(375.5303649902344-Y0)
 px=lambda v:(v-X0)*SX; py=lambda v:(v-Y0)*SY
 bx,ax_=np.polyfit([px(v) for v in [333.95,386.47,439.03,491.59,544.2]],[400,300,200,100,0],1)

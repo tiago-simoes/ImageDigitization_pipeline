@@ -1,17 +1,16 @@
-"""crouch_tobias2022.py -- step 19 of the digitisation protocol: crouch_tobias_2022, Fig. 3A [raster]
+"""crouch_tobias2022.py -- step 19 of the digitisation pipeline: crouch_tobias_2022, Fig. 3A [raster]
 Method  : mean log-rate line and 95% band traced in the raster (grey levels)
-Outputs : data_digitized/Aves_crown_phenotypic_rate_continuous_data_LMM.csv
-Run     : python3 R/digitisation/source_papers/crouch_tobias2022.py from the Runs root, or python3 R/digitisation/digitise_master.py --run crouch_tobias2022
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/crouch.py)
+Outputs : outputs/data_tables/clade_origin/Aves_crown_phenotypic_rate_continuous_data_LMM.csv
+Run     : python code/source_papers/crouch_tobias2022.py (from any folder), or python code/digitise_master.py --run crouch_tobias2022
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 from PIL import Image
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=np.asarray(Image.open(IMG+"crouch_fig3.png").convert("L")).astype(int)
 X,sx=lin([127,334,540.5,747,953.5],[80,60,40,20,0]); Y,sy=lin([90.5,311,531,751],[15,10,5,0])
 x0,x1,y0,y1=107,991,55,896

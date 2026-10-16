@@ -1,9 +1,8 @@
-"""cole_hopkins2021.py -- step 35 of the digitisation protocol: cole_hopkins_2021, Fig. 1, 2B [raster]
+"""cole_hopkins2021.py -- step 35 of the digitisation pipeline: cole_hopkins_2021, Fig. 1, 2B [raster]
 Method  : navy diversity line and black SOV line + blue CI band read at the GTS2012 stage midpoints
-Outputs : data_digitized/Crinoidea_Diplobathrida_taxonomic_diversity.csv, data_digitized/Crinoidea_Diplobathrida_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/cole_hopkins2021.py from the Runs root, or python3 R/digitisation/digitise_master.py --run cole_hopkins2021
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/cole_hopkins.py)
+Outputs : outputs/data_tables/clade_origin/Crinoidea_Diplobathrida_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Crinoidea_Diplobathrida_phenotypic_disparity.csv
+Run     : python code/source_papers/cole_hopkins2021.py (from any folder), or python code/digitise_master.py --run cole_hopkins2021
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Cole & Hopkins 2021 (Sci. Adv. 7:eabf4072), Crinoidea Diplobathrida.
   Fig. 1  range-through genus diversity (navy line; raster 1501 x 1188 px)  -> taxonomic_diversity
@@ -15,9 +14,9 @@ midpoints; inner stage boundaries are read from the stage boxes of each figure (
 323.2 Ma). Each curve is read at the vertex x positions (median of line pixels in a 3-px window); the CI band is the
 outer edge of the blue fill in that column.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 from PIL import Image
 pdf = pymupdf.open(PDF + "cole_hopkins_2021.pdf")
 for x, nm in [(43, "cole_hopkins_fig1.png"), (77, "cole_hopkins_fig2.png")]:

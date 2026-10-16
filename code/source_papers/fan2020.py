@@ -1,15 +1,14 @@
-"""fan2020.py -- step 29 of the digitisation protocol: fan_et_al_2020_SI, Fig. S10 [raster]
+"""fan2020.py -- step 29 of the digitisation pipeline: fan_et_al_2020_SI, Fig. S10 [raster]
 Method  : species-level curves traced per pixel column (median of line pixels), averaged in 1-Myr bins
-Outputs : data_digitized/Trilobita_taxonomic_diversity.csv, data_digitized/Pancrustacea_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/fan2020.py from the Runs root, or python3 R/digitisation/digitise_master.py --run fan2020
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/fan.py)
+Outputs : outputs/data_tables/clade_origin/Trilobita_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Pancrustacea_taxonomic_diversity.csv
+Run     : python code/source_papers/fan2020.py (from any folder), or python code/digitise_master.py --run fan2020
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 from PIL import Image
-a=np.asarray(Image.open(IMG+'fan-000.png').convert('L')).astype(int)
+a=np.asarray(Image.open(FIGIMG+'fan_et_al_2020_SI_FigS10.png').convert('L')).astype(int)   # PDF p. 17 image (supplied: see README)
 xt=[98.5,215.5,332.5,449.0,566.0,682.5,799.5,916.5]; xv=[540,500,460,420,380,340,300,260]
 P={"Trilobita":dict(x0=99.5,x1=973.5,y0=525.5,y1=1040,off=0,yt=[582.5,639.5,696.5,754.5,811.5,868.5,925.5,982.5],yv=[160,140,120,100,80,60,40,20],
                     excl=(800,973,526,600),lab='"Trilobite" (row 2, left)'),

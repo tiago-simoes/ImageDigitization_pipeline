@@ -1,13 +1,12 @@
-"""close2019_2_stage_richness.py -- step 3 of the digitisation protocol: close_2019, Fig. 1a [derived]
+"""close2019_2_stage_richness.py -- step 3 of the digitisation pipeline: close_2019, Fig. 1a [derived]
 Method  : summed locality richness per ICS stage (ICS chart v2023/09)
-Outputs : data_digitized/Tetrapoda_nonflying_taxonomic_diversity.csv
+Outputs : outputs/data_tables/clade_origin/Tetrapoda_nonflying_taxonomic_diversity.csv
 Note    : summed richness per ICS stage
-Run     : python3 R/digitisation/source_papers/close2019_2_stage_richness.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_2_stage_richness
-(formerly R/digitise_close2019/stages.py)
+Run     : python code/source_papers/close2019_2_stage_richness.py (from any folder), or python code/digitise_master.py --run close2019_2_stage_richness
 """
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
 import numpy as np, pandas as pd, matplotlib
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle

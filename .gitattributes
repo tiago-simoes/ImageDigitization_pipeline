@@ -1,0 +1,9 @@
+# keep text files with LF line endings and never convert binary files (PDFs, images) on checkout
+*.py   text eol=lf
+*.csv  text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary

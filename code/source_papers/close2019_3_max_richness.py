@@ -1,17 +1,15 @@
-"""close2019_3_max_richness.py -- step 4 of the digitisation protocol: close_2019, Fig. 1a [derived]
+"""close2019_3_max_richness.py -- step 4 of the digitisation pipeline: close_2019, Fig. 1a [derived]
 Method  : maximum local species richness per stage with bootstrap 95% CI (1000 replicates) + summary plot
-Outputs : data_digitized/Tetrapoda_nonflying_stage_max_local_richness.csv
+Outputs : outputs/data_tables/clade_origin/Tetrapoda_nonflying_stage_max_local_richness.csv
 Note    : maximum local richness per stage + bootstrap CI
-Run     : python3 R/digitisation/source_papers/close2019_3_max_richness.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2019_3_max_richness
-(formerly R/digitise_close2019/maxrich.py)
+Run     : python code/source_papers/close2019_3_max_richness.py (from any folder), or python code/digitise_master.py --run close2019_3_max_richness
 """
 import numpy as np, pandas as pd, matplotlib, re
 matplotlib.use("Agg"); import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-PDF="data_raw/articles_PDF/close_2019.pdf"   # run from the Runs root: python3 R/digitisation/source_papers/close2019_<n>_*.py
-DIG="data_digitized/digitisation/"; DAT="data_digitized/"; QC="data_raw/taxonomic_diversity/"
-WORK="data_digitized/digitisation/close2019_work/"   # intermediates; f5/img-000.jpg = embedded Fig. 5 raster of close_2019.pdf p. 4 (pdfimages -j -f 4 -l 4 ... f5/img)
-import os; os.makedirs(WORK,exist_ok=True)
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
+from digitise_master import PDF as PDF_DIR, OUT as DAT, FIGS, FIGIMG, CLOSE2019   # paths (digitise_master.py, section 1)
+PDF=PDF_DIR+"close_2019.pdf"; DIG=CLOSE2019; WORK=CLOSE2019; QC=FIGS+"taxonomic_diversity/"   # intermediates in outputs/intermediates/close2019/
 st=pd.read_csv(DIG+"Tetrapoda_nonflying_stage_summed_richness.csv")[["Stage","Period","Base_Ma","Top_Ma","Mid_Ma"]]
 d=pd.read_csv(DIG+"close2019_fig1a_localities.csv"); d["Age_Ma"]=d.Age_Ma.clip(lower=0)
 idx=np.searchsorted(-st.Base_Ma.values,-d.Age_Ma.values,side="right")-1

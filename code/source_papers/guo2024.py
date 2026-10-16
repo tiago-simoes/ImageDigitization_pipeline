@@ -1,21 +1,20 @@
-"""guo2024.py -- step 33 of the digitisation protocol: guo_2024, Fig. 2a-d [vector]
+"""guo2024.py -- step 33 of the digitisation pipeline: guo_2024, Fig. 2a-d [vector]
 Method  : median SOV line, 95% envelope and dashed genera line read from vector paths at the time-bin midpoints
-Outputs : data_digitized/Brachiopoda_Terebratuliida_phenotypic_disparity.csv, data_digitized/Brachiopoda_Terebratuliida_taxonomic_diversity.csv, data_digitized/Brachiopoda_Rhynchonellida_phenotypic_disparity.csv, data_digitized/Brachiopoda_Rhynchonellida_taxonomic_diversity.csv, data_digitized/Brachiopoda_Spiniferida_phenotypic_disparity.csv, data_digitized/Brachiopoda_Spiniferida_taxonomic_diversity.csv, data_digitized/Brachiopoda_Athyridida_phenotypic_disparity.csv, data_digitized/Brachiopoda_Athyridida_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/guo2024.py from the Runs root, or python3 R/digitisation/digitise_master.py --run guo2024
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/guo.py)
+Outputs : outputs/data_tables/clade_origin/Brachiopoda_Terebratuliida_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Brachiopoda_Terebratuliida_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Brachiopoda_Rhynchonellida_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Brachiopoda_Rhynchonellida_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Brachiopoda_Spiniferida_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Brachiopoda_Spiniferida_taxonomic_diversity.csv, outputs/data_tables/clade_origin/Brachiopoda_Athyridida_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Brachiopoda_Athyridida_taxonomic_diversity.csv
+Run     : python code/source_papers/guo2024.py (from any folder), or python code/digitise_master.py --run guo2024
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Guo et al. 2024 (Nat Ecol Evol 8:1948) Fig. 2: disparity (SOV, median + 95% bootstrap envelope) and
 diversity (number of genera, dashed grey line; vertex values rounded to integers, max deviation 0.04) of four brachiopod orders. Vector figure (PDF page 3):
 values are read from the PDF path coordinates (exact), calibrated on the axis tick marks.
   a Terebratulida (green), b Rhynchonellida (blue), c Spiriferinida (red), d Athyridida (orange).
-Clade names follow the key (Brachiopoda_Terebratuliida, _Rhynchonellida, _Spiniferida, _Athyridida).
+Clade names follow the spelling used in the keys (Brachiopoda_Terebratuliida, _Rhynchonellida, _Spiniferida, _Athyridida).
 The diversity line vertices are the time-bin midpoints; the disparity median and envelope are read at the
 same x positions (one value per bin).
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 pg = pymupdf.open(PDF + "guo_2024.pdf")[2]; dr = pg.get_drawings()
 close = lambda c, ref: c is not None and max(abs(a - b) for a, b in zip(c, ref)) < 0.01
 # x axes (tick marks): left column (a, b) and right column (c, d)

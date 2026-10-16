@@ -1,13 +1,12 @@
-"""zhou2023.py -- step 24 of the digitisation protocol: zhou_et_al_2023, Fig. 1a [vector]
+"""zhou2023.py -- step 24 of the digitisation pipeline: zhou_et_al_2023, Fig. 1a [vector]
 Method  : blue (functional groups) and black (genera) circle markers read from the vector PDF; Poisson error
-Outputs : data_digitized/Bivalvia_phenotypic_disparity.csv, data_digitized/Bivalvia_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/zhou2023.py from the Runs root, or python3 R/digitisation/digitise_master.py --run zhou2023
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/zhou.py)
+Outputs : outputs/data_tables/clade_origin/Bivalvia_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Bivalvia_taxonomic_diversity.csv
+Run     : python code/source_papers/zhou2023.py (from any folder), or python code/digitise_master.py --run zhou2023
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 p=pymupdf.open(PDF+"zhou_et_al_2023.pdf")[1]; dr=p.get_drawings()
 # x calibration: age labels (centre), y: dotted gridlines 0..70
 labs=[(w[0]+w[2])/2 for w in p.get_text("words") if 175<w[1]<180 and w[0]<215 and w[4].isdigit()]

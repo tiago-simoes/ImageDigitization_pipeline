@@ -1,13 +1,12 @@
-"""paterson2019.py -- step 25 of the digitisation protocol: paterson_et_al_2019_withSI, Fig. 3 [vector]
+"""paterson2019.py -- step 25 of the digitisation pipeline: paterson_et_al_2019_withSI, Fig. 3 [vector]
 Method  : blue per-branch rate markers (vector) binned in 2-Myr bins (mean +/- SE, n >= 3)
-Outputs : data_digitized/Trilobita_phenotypic_rate.csv, data_digitized/Trilobita_phenotypic_rate_rawpoints.csv
-Run     : python3 R/digitisation/source_papers/paterson2019.py from the Runs root, or python3 R/digitisation/digitise_master.py --run paterson2019
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/paterson.py)
+Outputs : outputs/data_tables/clade_origin/Trilobita_phenotypic_rate.csv, outputs/data_tables/clade_origin/Trilobita_phenotypic_rate_rawpoints.csv
+Run     : python code/source_papers/paterson2019.py (from any folder), or python code/digitise_master.py --run paterson2019
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 p=pymupdf.open(PDF+"paterson_et_al_2019_withSI.pdf")[3]
 X,sx=lin([166.73,195.04,223.34,251.64,279.8,308.1,336.41,364.71,393.01,421.17,449.47],list(range(535,484,-5)))
 Y,sy=lin([221.85,139.47,56.91],[0,.5,1])

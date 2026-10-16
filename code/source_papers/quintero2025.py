@@ -1,16 +1,15 @@
-"""quintero2025.py -- step 17 of the digitisation protocol: quintero_2025_SI, Suppl. Fig. 9 [raster]
+"""quintero2025.py -- step 17 of the digitisation pipeline: quintero_2025_SI, Suppl. Fig. 9 [raster]
 Method  : FBDD median diversity and 95% CI traced in the raster
-Outputs : data_digitized/Dinosauria_early_taxonomic_diversity_FBDD.csv
-Run     : python3 R/digitisation/source_papers/quintero2025.py from the Runs root, or python3 R/digitisation/digitise_master.py --run quintero2025
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/quintero25.py)
+Outputs : outputs/data_tables/clade_origin/Dinosauria_early_taxonomic_diversity_FBDD.csv
+Run     : python code/source_papers/quintero2025.py (from any folder), or python code/digitise_master.py --run quintero2025
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"quintero25_S9.png")
 X,sx=lin([875,975.5,1076,1177],[216,166,116,66]); Y,sy=lin([1119,1079,1039,999,959.5],[0,200,400,600,800])
 x0,x1,y0,y1=796,1185,945,1123

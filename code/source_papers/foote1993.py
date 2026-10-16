@@ -1,15 +1,14 @@
-"""foote1993.py -- step 31 of the digitisation protocol: foote_1993, Fig. 5A [raster]
+"""foote1993.py -- step 31 of the digitisation pipeline: foote_1993, Fig. 5A [raster]
 Method  : total-variance points and SE bars traced in the raster; time axis from the Fig. 5B ticks
-Outputs : data_digitized/Trilobita_phenotypic_disparity.csv
-Run     : python3 R/digitisation/source_papers/foote1993.py from the Runs root, or python3 R/digitisation/digitise_master.py --run foote1993
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_invert/foote.py)
+Outputs : outputs/data_tables/clade_origin/Trilobita_phenotypic_disparity.csv
+Run     : python code/source_papers/foote1993.py (from any folder), or python code/digitise_master.py --run foote1993
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate dialect (4 decimals)
+from digitise_master import save_invert as save, OUT_INVERT as OUT, IMG_INVERT as IMG   # invertebrate writer (4 decimals)
 from PIL import Image
-a=np.asarray(Image.open(IMG+'foote_A_full.png'))<128
+a=np.asarray(Image.open(IMG+'foote_1993_p11.png').convert('L'))[480:1600,2100:3850]<128   # Fig. 5A panel of the PDF p. 11 image (extract_raster_figures.py)
 X,sx=lin([377.0,638.0,898.0,1157.5,1417.5,1678.5],[560,497,434,371,308,245])
 Y,sy=lin([142.5,321.0,498.5,675.5,850.5,1026.0],[0.071,0.0568,0.0426,0.0284,0.0142,0.0])
 exp={"C1":420,"C2":529,"O1":650,"O2":790,"S":930,"D1":1044,"D2":1142,"EC":1268,"LC":1425,"P":1585}

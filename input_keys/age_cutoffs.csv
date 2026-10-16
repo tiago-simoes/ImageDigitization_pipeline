@@ -1,0 +1,9 @@
+Clade,Parameter,Max_age_Ma,Applied_to,Reason
+Tetrapoda_stem,phenotypic_rate,380,node ages before 5-Myr binning (raw_data_convert.py),Older nodes are not Tetrapoda
+Tetrapoda_stem,phenotypic_disparity,380,series ages (age_cutoffs.py),Older data points are not Tetrapoda
+Mammalia_early,phenotypic_rate,200,series ages (age_cutoffs.py),Older data points are earlier mammaliaforms; Mammalia_early = earliest crown Mammalia
+Mammalia_early,phenotypic_disparity,200,series ages (age_cutoffs.py),Older data points are earlier mammaliaforms; Mammalia_early = earliest crown Mammalia
+Mammalia_early,taxonomic_diversity,200,series ages (age_cutoffs.py),Older data points are earlier mammaliaforms; Mammalia_early = earliest crown Mammalia
+Mammalia_early,taxonomic_diversity_BDD,200,series ages (age_cutoffs.py),Older data points are earlier mammaliaforms; Mammalia_early = earliest crown Mammalia
+Dinosauria_early,phenotypic_rate,251.2,series ages (age_cutoffs.py),Older node ages are unreliable estimates; cutoff at the maximum node age considered = clade origin 251.2-237 Ma
+Theropoda_non-avian,phenotypic_rate,242,series ages (age_cutoffs.py),Older node ages are unreliable estimates; cutoff at the maximum node age considered = clade origin 242-230 Ma

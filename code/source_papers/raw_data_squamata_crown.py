@@ -1,21 +1,19 @@
-"""raw_data_squamata_crown.py -- step 38 of the digitisation protocol: simoes_2026, simoes_2020, close_2019 (converted), raw data [raw]
+"""raw_data_squamata_crown.py -- step 38 of the digitisation pipeline: simoes_2026, simoes_2020, close_2019 (converted), raw data [raw]
 Method  : Squamata rates binned with node_bins(); disparity and diversity reformatted from the same files as Lepidosauria
-Outputs : data_digitized/Squamata_crown_phenotypic_rate_continuous_data_GMM.csv, data_digitized/Squamata_crown_phenotypic_rate_discrete_data.csv, data_digitized/Squamata_crown_phenotypic_disparity.csv, data_digitized/Squamata_crown_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/raw_data_squamata_crown.py from the Runs root, or python3 R/digitisation/digitise_master.py --run raw_data_squamata_crown
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/squamata_raw.py)
+Outputs : outputs/data_tables/clade_origin/Squamata_crown_phenotypic_rate_continuous_data_GMM.csv, outputs/data_tables/clade_origin/Squamata_crown_phenotypic_rate_discrete_data.csv, outputs/data_tables/clade_origin/Squamata_crown_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Squamata_crown_taxonomic_diversity.csv
+Run     : python code/source_papers/raw_data_squamata_crown.py (from any folder), or python code/digitise_master.py --run raw_data_squamata_crown
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Squamata_crown series of the mass-extinction key (raw / converted data; no digitisation).
   phenotypic_rate continuous data (GMM): simoes_2026_squam_rates_cont.csv (age_median, rate_BT)
-  phenotypic_rate discrete data:          simoes_2026_squam_rates_disc.csv (node_age_median, relrates; the key's
-                                          "ages = age; median; ci95" describes the disparity file, not this one)
+  phenotypic_rate discrete data:          simoes_2026_squam_rates_disc.csv (node_age_median, relrates)
   phenotypic_disparity:                   simoes_2020_lepido_disparity.csv (same source as Lepidosauria, as in the key)
   taxonomic_diversity:                    Squamata_max_local_richness.csv (Close 2019 Fig. 5c, squamates only)
 Node-based rates: 5-Myr bins of node ages (bin median, SE from pooled robust SD), exactly as the Lepidosauria rates
-in R/digitisation/source_papers/raw_data_convert.py. For the mass-extinction runs, R/prep_mass_extinction.py re-bins these raw node
+in raw_data_convert.py. For mass-extinction keys, utilities/mass_extinction_crop.py re-bins these raw node
 files with bins anchored at the extinction age.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
 out = save_table             # writer for complete tables (digitise_master.save_table)
 out(node_bins("simoes_2026_squam_rates_cont.csv", "age_median", "rate_BT", "Squamata_crown", "phenotypic_rate", "simoes_2026", drop_zero=True),

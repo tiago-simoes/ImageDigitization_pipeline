@@ -1,18 +1,17 @@
-"""alvarez_carretero2022.py -- step 14 of the digitisation protocol: allvarez-carretero_2022, Fig. 3b [raster]
+"""alvarez_carretero2022.py -- step 14 of the digitisation pipeline: allvarez-carretero_2022, Fig. 3b [raster]
 Method  : orange eutherian-genera line traced with a colour mask in the raster inset
-Outputs : data_digitized/Placentalia_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/alvarez_carretero2022.py from the Runs root, or python3 R/digitisation/digitise_master.py --run alvarez_carretero2022
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/alvarez.py)
+Outputs : outputs/data_tables/clade_origin/Placentalia_taxonomic_diversity.csv
+Run     : python code/source_papers/alvarez_carretero2022.py (from any folder), or python code/digitise_master.py --run alvarez_carretero2022
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
 Alvarez-Carretero et al. 2022 (Nature) Fig. 3b inset: orange line = number of EUTHERIAN GENERA through time
-(PaleoDB), log10 y axis -> Placentalia taxonomic diversity (second, independent series). Raster trace.
+(PaleoDB), log10 y axis -> Placentalia taxonomic diversity. Raster trace.
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"; FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT; FIG=QC_VERT
 a=load(IMG+"alvarez_fig3b.png"); R,G,B=a[...,0],a[...,1],a[...,2]
 X,sx=lin([32.5,257.5,482.5,706,931,1155.5],[250,200,150,100,50,0])                       # tick marks inside the image
 Y,sy=lin([30.5,152.5,274.5,396.5,482],np.log10([5000,500,50,5,1]))                        # log10(no. of lineages)

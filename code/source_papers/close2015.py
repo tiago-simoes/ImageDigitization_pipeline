@@ -1,16 +1,15 @@
-"""close2015.py -- step 21 of the digitisation protocol: close_2015, Fig. 1B-D [raster]
+"""close2015.py -- step 21 of the digitisation pipeline: close_2015, Fig. 1B-D [raster]
 Method  : rate line (1B), disparity points + 95% CI (1C) and lineage step line (1D) traced; ages on GTS2012 epoch boundaries
-Outputs : data_digitized/Mammalia_early_phenotypic_rate.csv, data_digitized/Mammalia_early_phenotypic_disparity.csv, data_digitized/Mammalia_early_taxonomic_diversity.csv
-Run     : python3 R/digitisation/source_papers/close2015.py from the Runs root, or python3 R/digitisation/digitise_master.py --run close2015
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_vert/close15.py)
+Outputs : outputs/data_tables/clade_origin/Mammalia_early_phenotypic_rate.csv, outputs/data_tables/clade_origin/Mammalia_early_phenotypic_disparity.csv, outputs/data_tables/clade_origin/Mammalia_early_taxonomic_diversity.csv
+Run     : python code/source_papers/close2015.py (from any folder), or python code/digitise_master.py --run close2015
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_vert as save                     # output writer, vertebrate dialect (rounded to 6 decimals)
+from digitise_master import save_vert as save                     # vertebrate writer (rounded to 6 decimals)
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
-IMG="data_digitized/digitisation/vert_img/"
-FIG="data_digitized/digitisation/vert_qc/"; os.makedirs(FIG,exist_ok=True)
+IMG=IMG_VERT
+FIG=QC_VERT
 a=load(IMG+"close15_fig1.png"); g=a.max(2); sat=a.max(2)-a.min(2)
 # time axis: epoch boundaries of the timescale bar (GTS2012)
 bx=[43.5,104,144,225.5,510.5,728,813,960.5,1316,1591.5,1671]; ba=[259.8,252.17,247.2,237.0,201.3,174.1,163.5,145.0,100.5,66.0,56.0]

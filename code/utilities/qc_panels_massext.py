@@ -1,17 +1,16 @@
-"""qc_panels_massext.py -- step 41 of the digitisation protocol [qc]
-Method  : source crops + QC panels (qc_panel) in data_raw/<parameter folder>/
+"""qc_panels_massext.py -- step 41 of the digitisation pipeline [qc]
+Method  : source crops + QC panels (qc_panel) in outputs/figures/<parameter folder>/
 Note    : source crops + QC panels of the mass-extinction figure series
-Run     : python3 R/digitisation/utilities/qc_panels_massext.py from the Runs root, or python3 R/digitisation/digitise_master.py --run qc_panels_massext
-Helpers : shared functions imported from R/digitisation/digitise_master.py (documented there)
-(formerly R/digitise_massext/crops.py)
+Run     : python code/utilities/qc_panels_massext.py (from any folder), or python code/digitise_master.py --run qc_panels_massext
+Helpers : shared functions imported from code/digitise_master.py (documented there)
 
-Source crops + QC panels (source | digitised series) for the mass-extinction digitisations (14 Oct 2026).
-Writes data_raw/<parameter folder>/<Clade>_<parameter>_<Source>.png and ..._QC_digitised.png. Run after the
+Source crops + QC panels (source | digitised series) for the sources of the mass_extinction group.
+Writes outputs/figures/<parameter folder>/<Clade>_<parameter>_<Source>.png and ..._QC_digitised.png. Run after the
 digitisation scripts (guo2024.py, whalen2020.py, cole_hopkins2021.py, lamsdell_selden2016.py, halliday_goswami2016.py).
 """
-import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # R/digitisation/, where digitise_master.py lives
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
-from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction dialect (5 decimals)
+from digitise_master import save_massext as save, IMG_MASSEXT as IMG                     # mass-extinction-source writer (5 decimals)
 from PIL import Image
 import matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
 vec = pdf_crop                # digitise_master.pdf_crop(pdf, page, clip, path, dpi=400)
@@ -30,6 +29,6 @@ S += [("Crinoidea_Diplobathrida", "taxonomic_diversity", "Crinoidea_Diplobathrid
       ("Eurypterida", "phenotypic_disparity", "Eurypterida_disparity_LamsdellSelden2016_Fig4.png", lambda p: ras(L4, None, p)),
       ("Placentalia", "phenotypic_disparity", "Placentalia_disparity_HallidayGoswami2016_Fig4.png", lambda p: ras(H4, None, p))]
 for cl, par, name, fn in S:
-    F = os.path.join("data_raw", FOLD[par]); os.makedirs(F, exist_ok=True); path = os.path.join(F, name); fn(path)
+    F = os.path.join(FIGS, FOLD[par]); os.makedirs(F, exist_ok=True); path = os.path.join(F, name); fn(path)
     qc_panel(cl, par, path, f"{OUT}{cl}_{par}.csv", title_chars=95)   # source | digitised (digitise_master.qc_panel)
-    print(path)
+    print(os.path.relpath(path, ROOT))

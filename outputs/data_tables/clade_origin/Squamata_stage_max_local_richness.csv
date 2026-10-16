@@ -1,48 +1,48 @@
-Stage,Period,Base_Ma,Top_Ma,Mid_Ma,N_localities,Max_local_richness,Envelope_dot_tops_in_stage
-Norian,Triassic,227,208.5,217.75,,1,2
-Rhaetian,Triassic,208.5,201.4,204.95,,1,0
-Hettangian,Jurassic,201.4,199.5,200.45,,,0
-Sinemurian,Jurassic,199.5,192.9,196.2,,,0
-Pliensbachian,Jurassic,192.9,184.2,188.55,,,0
-Toarcian,Jurassic,184.2,174.7,179.45,,1,1
-Aalenian,Jurassic,174.7,170.9,172.8,,1,0
-Bajocian,Jurassic,170.9,168.2,169.55,,8,0
-Bathonian,Jurassic,168.2,165.3,166.75,,8,1
-Callovian,Jurassic,165.3,161.5,163.4,,8,2
-Oxfordian,Jurassic,161.5,154.8,158.15,,6,2
-Kimmeridgian,Jurassic,154.8,149.2,152,,5,1
-Tithonian,Jurassic,149.2,145,147.1,,4,1
-Berriasian,Cretaceous,145,139.8,142.4,,9,1
-Valanginian,Cretaceous,139.8,132.6,136.2,,7,1
-Hauterivian,Cretaceous,132.6,125.77,129.18,,6,2
-Barremian,Cretaceous,125.77,121.4,123.58,,4,1
-Aptian,Cretaceous,121.4,113,117.2,,4,0
-Albian,Cretaceous,113,100.5,106.75,,5,3
-Cenomanian,Cretaceous,100.5,93.9,97.2,,7,1
-Turonian,Cretaceous,93.9,89.8,91.85,,6,1
-Coniacian,Cretaceous,89.8,86.3,88.05,,9,0
-Santonian,Cretaceous,86.3,83.6,84.95,,10,1
-Campanian,Cretaceous,83.6,72.1,77.85,,19,2
-Maastrichtian,Cretaceous,72.1,66,69.05,,16,2
-Danian,Paleogene,66,61.6,63.8,,9,1
-Selandian,Paleogene,61.6,59.2,60.4,,9,0
-Thanetian,Paleogene,59.2,56,57.6,,7,1
-Ypresian,Paleogene,56,48.07,52.04,,22,2
-Lutetian,Paleogene,48.07,41.2,44.64,,20,3
-Bartonian,Paleogene,41.2,37.71,39.46,,20,1
-Priabonian,Paleogene,37.71,33.9,35.8,,24,1
-Rupelian,Paleogene,33.9,27.82,30.86,,23,0
-Chattian,Paleogene,27.82,23.03,25.42,,17,1
-Aquitanian,Neogene,23.03,20.44,21.74,,15,1
-Burdigalian,Neogene,20.44,15.98,18.21,,18,2
-Langhian,Neogene,15.98,13.82,14.9,,21,0
-Serravallian,Neogene,13.82,11.63,12.72,,22,1
-Tortonian,Neogene,11.63,7.25,9.44,,22,0
-Messinian,Neogene,7.25,5.33,6.29,,17,0
-Zanclean,Neogene,5.33,3.6,4.47,,18,0
-Piacenzian,Neogene,3.6,2.58,3.09,,18,0
-Gelasian,Quaternary,2.58,1.8,2.19,,18,0
-Calabrian,Quaternary,1.8,0.77,1.29,,18,1
-Chibanian,Quaternary,0.77,0.13,0.45,,18,0
-Upper Pleistocene,Quaternary,0.13,0.01,0.07,,18,0
-Holocene,Quaternary,0.01,0,0.01,,,0
+Stage,Period,Base_Ma,Top_Ma,Mid_Ma,N_localities,Max_local_richness,Q95_local_richness,Max_boot_lo,Max_boot_hi,RarefiedMax_n20,RarefiedMax_n20_lo,RarefiedMax_n20_hi,Envelope_dot_tops_in_stage,Note
+Norian,Triassic,227.0,208.5,217.75,,1.0,,,,,,,2,
+Rhaetian,Triassic,208.5,201.4,204.95,,1.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope
+Hettangian,Jurassic,201.4,199.5,200.45,,,,,,,,,0,
+Sinemurian,Jurassic,199.5,192.9,196.2,,,,,,,,,0,
+Pliensbachian,Jurassic,192.9,184.2,188.55,,,,,,,,,0,
+Toarcian,Jurassic,184.2,174.7,179.45,,1.0,,,,,,,1,
+Aalenian,Jurassic,174.7,170.9,172.8,,1.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (8 px = 3.80 Myr): assignment uncertain
+Bajocian,Jurassic,170.9,168.2,169.55,,8.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (6 px = 2.70 Myr): assignment uncertain
+Bathonian,Jurassic,168.2,165.3,166.75,,8.0,,,,,,,1,stage narrower than one dot (6 px = 2.90 Myr): assignment uncertain
+Callovian,Jurassic,165.3,161.5,163.4,,8.0,,,,,,,2,stage narrower than one dot (9 px = 3.80 Myr): assignment uncertain
+Oxfordian,Jurassic,161.5,154.8,158.15,,6.0,,,,,,,2,
+Kimmeridgian,Jurassic,154.8,149.2,152.0,,5.0,,,,,,,1,
+Tithonian,Jurassic,149.2,145.0,147.1,,4.0,,,,,,,1,stage narrower than one dot (9 px = 4.20 Myr): assignment uncertain
+Berriasian,Cretaceous,145.0,139.8,142.4,,9.0,,,,,,,1,
+Valanginian,Cretaceous,139.8,132.6,136.2,,7.0,,,,,,,1,
+Hauterivian,Cretaceous,132.6,125.77,129.18,,6.0,,,,,,,2,
+Barremian,Cretaceous,125.77,121.4,123.58,,4.0,,,,,,,1,stage narrower than one dot (10 px = 4.37 Myr): assignment uncertain
+Aptian,Cretaceous,121.4,113.0,117.2,,4.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope
+Albian,Cretaceous,113.0,100.5,106.75,,5.0,,,,,,,3,
+Cenomanian,Cretaceous,100.5,93.9,97.2,,7.0,,,,,,,1,
+Turonian,Cretaceous,93.9,89.8,91.85,,6.0,,,,,,,1,stage narrower than one dot (9 px = 4.10 Myr): assignment uncertain
+Coniacian,Cretaceous,89.8,86.3,88.05,,9.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (7 px = 3.50 Myr): assignment uncertain
+Santonian,Cretaceous,86.3,83.6,84.95,,10.0,,,,,,,1,stage narrower than one dot (6 px = 2.70 Myr): assignment uncertain
+Campanian,Cretaceous,83.6,72.1,77.85,,19.0,,,,,,,2,
+Maastrichtian,Cretaceous,72.1,66.0,69.05,,16.0,,,,,,,2,
+Danian,Paleogene,66.0,61.6,63.8,,9.0,,,,,,,1,stage narrower than one dot (10 px = 4.40 Myr): assignment uncertain
+Selandian,Paleogene,61.6,59.2,60.4,,9.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (5 px = 2.40 Myr): assignment uncertain
+Thanetian,Paleogene,59.2,56.0,57.6,,7.0,,,,,,,1,stage narrower than one dot (7 px = 3.20 Myr): assignment uncertain
+Ypresian,Paleogene,56.0,48.07,52.04,,22.0,,,,,,,2,
+Lutetian,Paleogene,48.07,41.2,44.64,,20.0,,,,,,,3,
+Bartonian,Paleogene,41.2,37.71,39.46,,20.0,,,,,,,1,stage narrower than one dot (8 px = 3.49 Myr): assignment uncertain
+Priabonian,Paleogene,37.71,33.9,35.8,,24.0,,,,,,,1,stage narrower than one dot (8 px = 3.81 Myr): assignment uncertain
+Rupelian,Paleogene,33.9,27.82,30.86,,23.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope
+Chattian,Paleogene,27.82,23.03,25.42,,17.0,,,,,,,1,stage narrower than one dot (10 px = 4.79 Myr): assignment uncertain
+Aquitanian,Neogene,23.03,20.44,21.74,,15.0,,,,,,,1,stage narrower than one dot (6 px = 2.59 Myr): assignment uncertain
+Burdigalian,Neogene,20.44,15.98,18.21,,18.0,,,,,,,2,stage narrower than one dot (10 px = 4.46 Myr): assignment uncertain
+Langhian,Neogene,15.98,13.82,14.9,,21.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (4 px = 2.16 Myr): assignment uncertain
+Serravallian,Neogene,13.82,11.63,12.72,,22.0,,,,,,,1,stage narrower than one dot (5 px = 2.19 Myr): assignment uncertain
+Tortonian,Neogene,11.63,7.25,9.44,,22.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (10 px = 4.38 Myr): assignment uncertain
+Messinian,Neogene,7.25,5.33,6.29,,17.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (4 px = 1.92 Myr): assignment uncertain
+Zanclean,Neogene,5.33,3.6,4.47,,18.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (4 px = 1.73 Myr): assignment uncertain
+Piacenzian,Neogene,3.6,2.58,3.09,,18.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (2 px = 1.02 Myr): assignment uncertain
+Gelasian,Quaternary,2.58,1.8,2.19,,18.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (2 px = 0.78 Myr): assignment uncertain
+Calabrian,Quaternary,1.8,0.77,1.29,,18.0,,,,,,,1,stage narrower than one dot (2 px = 1.03 Myr): assignment uncertain
+Chibanian,Quaternary,0.77,0.13,0.45,,18.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (1 px = 0.64 Myr): assignment uncertain
+Upper Pleistocene,Quaternary,0.13,0.01,0.07,,18.0,,,,,,,0,no dot top inside stage (covered by neighbouring dots); value read from envelope; stage narrower than one dot (1 px = 0.12 Myr): assignment uncertain
+Holocene,Quaternary,0.01,0.0,0.01,,,,,,,,,0,
