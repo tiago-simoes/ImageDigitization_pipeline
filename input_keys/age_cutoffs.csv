@@ -7,3 +7,4 @@ Mammalia_early,taxonomic_diversity,200,series ages (age_cutoffs.py),Older data p
 Mammalia_early,taxonomic_diversity_BDD,200,series ages (age_cutoffs.py),Older data points are earlier mammaliaforms; Mammalia_early = earliest crown Mammalia
 Dinosauria_early,phenotypic_rate,251.2,series ages (age_cutoffs.py),Older node ages are unreliable estimates; cutoff at the maximum node age considered = clade origin 251.2-237 Ma
 Theropoda_non-avian,phenotypic_rate,242,series ages (age_cutoffs.py),Older node ages are unreliable estimates; cutoff at the maximum node age considered = clade origin 242-230 Ma
+Placentalia,phenotypic_disparity,83.3,series ages (age_cutoffs.py),Cutoff at the maximum clade-origin age of Placentalia (clade origin 83.3-77 Ma)

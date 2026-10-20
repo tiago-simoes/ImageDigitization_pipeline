@@ -9,7 +9,8 @@ series gets a QC figure that shows the source figure next to the digitised value
 ```
 articles_PDF/                     source PDFs and raw data files (CSV) named in the keys
   figure_images/                  figure images read directly by three scripts (see "Inputs")
-input_keys/                       example keys and settings (age_cutoffs.csv, massext_copy_from_origin.csv)
+input_keys/                       keys of the analysis, example keys and settings (age_cutoffs.csv,
+                                  massext_copy_from_origin.csv)
 code/
   digitise_master.py              shared functions + registry of scripts + command-line runner
   source_papers/                  one script per source paper (37 scripts)
@@ -74,6 +75,28 @@ to the time after that extinction. The example keys write:
 The same command runs any key in this format, as long as its rows refer to series in the registry
 (`python code/digitise_master.py --list --long` shows every series and its source).
 
+## Reproduce all tables: the keys of the analysis
+
+```
+python code/digitise_master.py --key "input_keys/key_origin_invert&vert.csv"
+python code/digitise_master.py --key "input_keys/key_massext_invert&vert.csv"
+```
+
+(The quotes are needed because the file names contain `&`.)
+
+* `key_origin_invert&vert.csv` (clade origins): 52 rows (clade x parameter); 48 have a published source and are
+  written to `outputs/data_tables/clade_origin/`, 4 are `na` (no published series).
+* `key_massext_invert&vert.csv` (mass extinctions): 63 rows (17 clades, six extinctions). 37 series are cropped to
+  the time after their extinction (`outputs/data_tables/mass_extinction/`; one of them, Crinoidea_Eucladida disparity
+  after the Famennian, keeps only 3 points); 15 rows of the five clades in `massext_copy_from_origin.csv` use the
+  full clade-origin series; 11 rows are `na`.
+
+Re-running the two keys reproduces the committed tables exactly. `outputs/data_tables/clade_origin/` also holds a few
+tables that no key row names directly: the Close et al. 2019 locality summaries (`Tetrapoda_nonflying_*`,
+`Squamata_*max_local_richness.csv`, read by `raw_data_convert.py`), `Trilobita_phenotypic_rate_rawpoints.csv`
+(per-branch points behind the binned Trilobita rates) and the four `Squamata_crown_*` series written by
+`raw_data_squamata_crown.py` (Squamata_crown is not part of the final mass-extinction key).
+
 ## Other commands
 
 ```
@@ -95,7 +118,8 @@ series instead).
 
 `--check` copies `articles_PDF/`, `input_keys/` and `code/` to a temporary folder, runs every script there and compares
 each table with `outputs/data_tables/` (byte for byte; if the bytes differ, the values are compared). Add
-`--key <mass-extinction key>` to check the crops of that key too. Figures are compared pixel by pixel and reported
+`--key <mass-extinction key>` to check the crops of that key too (`--check --key "input_keys/key_massext_invert&vert.csv"`
+checks every committed table). Figures are compared pixel by pixel and reported
 separately, because PNG encoding and anti-aliasing can differ slightly between library versions. On Windows the tables
 are written with CRLF line endings; they are then reported as "same values (format differs)".
 
@@ -111,10 +135,15 @@ are written with CRLF line endings; they are then reported as "same values (form
   * `close_2019_Fig5c_dot_tops_zoom.png`: zoomed view of the detected dot tops, shown in the Close et al. 2019 Fig. 5c
     QC panel.
 * `input_keys/`:
+  * `key_origin_invert&vert.csv`, `key_massext_invert&vert.csv`: the keys of the analysis (above). Columns: `group`,
+    `clade`, (mass extinctions: `extinction_event`, `extinction_age(Ma)`), `parameter`, `reference`, `figure/table`,
+    `legend/line`, `note` (extraction instructions), `data_file` (raw data rows), `data_type` (tells apart two
+    series of one clade x parameter, e.g. `PyRate` / `FBDD`);
   * `key_test_origin.csv`, `key_test_MassExct.csv`: example keys (format above);
   * `age_cutoffs.csv`: series cut at a maximum age (`Clade, Parameter, Max_age_Ma, Applied_to, Reason`), applied by
     `age_cutoffs.py` (node-based rates are cut on node ages inside `raw_data_convert.py`);
-  * `massext_copy_from_origin.csv`: clades that originate right after an extinction; their series are not cropped by
+  * `massext_copy_from_origin.csv`: clades whose full clade-origin series are used for their extinction (clades that
+    originate right after it, or whose full series show the parameters across it); they are not cropped by
     `mass_extinction_crop.py`.
 
 ## Outputs
@@ -128,7 +157,9 @@ are written with CRLF line endings; they are then reported as "same values (form
   summaries (`*_stage_max_local_richness.csv`).
 * `outputs/data_tables/mass_extinction/<series>__<event>.csv`: rows with `Age_Ma` <= the key's extinction age (node-based
   raw rates are re-binned from the node ages, in 5-Myr bins anchored at the extinction age); `crop_log.csv` has one
-  row per cropped series (points before and after the crop).
+  row per cropped series (points before and after the crop). Running a smaller key updates only its rows of
+  `crop_log.csv`; rows of a key that are no longer cropped (clade added to `massext_copy_from_origin.csv`) are
+  removed from the log, and their old crop files are reported.
 * `outputs/figures/<parameter folder>/`: a source crop and a `_QC_digitised.png` panel (source | digitised series) per
   series.
 * `outputs/intermediates/`: extracted rasters (`*_img/`), trace-over-source images (`vert_qc/`), tick and calibration
@@ -176,7 +207,7 @@ Each script header and `--list --long` describe the specific extraction; `digiti
 | 23 | `raw_data_convert.py` | vertebrates | raw | simoes_pierce_2021, simoes_2022, simoes_2026, zhang_2022, simoes_2020, close_2019 (converted) | raw data | Tetrapoda_stem_phenotypic_rate, Archosauromorpha_stem_phenotypic_rate, Lepidosauria_phenotypic_rate_continuous_data_GMM, Aves_stem_phenotypic_rate, Lepidosauria_phenotypic_rate_discrete_data, Lepidosauria_phenotypic_disparity, Tetrapoda_stem_taxonomic_diversity, Lepidosauria_taxonomic_diversity |
 | 24 | `zhou2023.py` | invertebrates | vector | zhou_et_al_2023 | Fig. 1a | Bivalvia_phenotypic_disparity, Bivalvia_taxonomic_diversity |
 | 25 | `paterson2019.py` | invertebrates | vector | paterson_et_al_2019_withSI | Fig. 3 | Trilobita_phenotypic_rate, Trilobita_phenotypic_rate_rawpoints |
-| 26 | `novack_gottshall2022.py` | invertebrates | vector | novack-gottshall_et_al_2022 | Fig. 1b, 1c | Echinodermata_phenotypic_rate, Echinodermata_phenotypic_disparity |
+| 26 | `novack_gottshall2022.py` | invertebrates | vector (ED Fig. 1a: raster) | novack-gottshall_et_al_2022 | Fig. 1b, 1c; ED Fig. 1a | Echinodermata_phenotypic_rate, Echinodermata_phenotypic_disparity, Echinodermata_taxonomic_diversity |
 | 27 | `hopkins_smith2015.py` | invertebrates | vector | hopkins_smith_2015 | Fig. 2A (Fig. 1) | Echinoidea_Irregularia_phenotypic_rate |
 | 28 | `boivin2018.py` | invertebrates | vector | boivin-et_al_2018 | Fig. 3 | Echinoidea_Irregularia_phenotypic_disparity, Echinoidea_Irregularia_taxonomic_diversity |
 | 29 | `fan2020.py` | invertebrates | raster | fan_et_al_2020_SI | Fig. S10 | Trilobita_taxonomic_diversity, Pancrustacea_taxonomic_diversity |
@@ -196,8 +227,9 @@ Each script header and `--list --long` describe the specific extraction; `digiti
 | 43 | `mass_extinction_crop.py` | crop | utility |  |  | mass-extinction keys only: crops each series at its extinction age -> outputs/data_tables/mass_extinction/ |
 
 Groups: `close2019` (Close et al. 2019 locality data, steps 2-7, in this order), `vertebrates` and `invertebrates`
-(clade-origin sources), `mass_extinction` (sources used for the mass-extinction series), `qc` (source crops and QC
-panels), `cutoff` and `crop`. `hopkins_smith2015.py` also writes
+(clade-origin sources), `mass_extinction` (sources added for the mass-extinction series; `halliday_goswami2016.py`
+also serves the clade-origin key, Placentalia disparity cut at 83.3 Ma), `qc` (source crops and QC panels), `cutoff`
+and `crop`. `hopkins_smith2015.py` also writes
 `Echinoidea_Irregularia_phenotypic_rate_Fig1_allEchinoidea.csv` (all crown-group echinoids, Fig. 1) to
 `outputs/intermediates/` for reference.
 

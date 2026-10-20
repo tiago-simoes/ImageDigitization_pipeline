@@ -3,19 +3,23 @@ Method  : keeps the rows with Age_Ma <= extinction age of each key row (node-bas
 Outputs : outputs/data_tables/mass_extinction/<series>__<event>.csv and crop_log.csv
 Run     : python code/utilities/mass_extinction_crop.py input_keys/key_test_MassExct.csv
           (or python code/digitise_master.py --key input_keys/key_test_MassExct.csv, which first re-runs the scripts
-          behind the key's rows)
+          behind the key's rows; "input_keys/key_massext_invert&vert.csv" = full key of the analysis)
 
 For every row of a mass-extinction key (columns clade, parameter, reference, figure/table, extinction age
 [extinction_Age or extinction_age(Ma)] and extinction name [extinction_name or extinction_event]; data_type optional):
   * the full series outputs/data_tables/clade_origin/<series>.csv is cut to the time AFTER the extinction, i.e. the rows
     with Age_Ma <= extinction age, and written to outputs/data_tables/mass_extinction/<series>__<event>.csv; the Source
     column records the crop. The full series are not modified.
-  * node-based raw rate files (Tetrapoda_stem, Squamata_crown) are re-binned from the raw node ages instead (nodes <=
-    extinction age, 5-Myr bins anchored at the extinction age, so the first bin is the first 5 Myr after the event).
-  * clades listed in input_keys/massext_copy_from_origin.csv are not cropped (their clade-origin series are used).
+  * node-based raw rate files (Tetrapoda_stem, Archosauromorpha_stem, Squamata_crown) are re-binned from the raw node
+    ages instead (nodes <= extinction age, 5-Myr bins anchored at the extinction age, so the first bin is the first
+    5 Myr after the event).
+  * clades listed in input_keys/massext_copy_from_origin.csv are not cropped: their full clade-origin series (and the
+    clade-origin results) are used for that extinction.
 Series ids: <clade>_<parameter>[_<data_type>] (digitise_master.key_series); the event slug is appended after "__".
 crop_log.csv gets one row per cropped series; rows of series not in this key are kept, so running a small key does
-not remove the log entries of other series. A series file is rewritten only when its content changes.
+not remove the log entries of other series (rows of key series that are no longer cropped, e.g. a clade added to
+massext_copy_from_origin.csv, are dropped and their old crop files reported). A series file is rewritten only when
+its content changes.
 """
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 import numpy as np, pandas as pd
@@ -32,6 +36,7 @@ cf = os.path.join(KEYS, "massext_copy_from_origin.csv")
 COPY = dict(pd.read_csv(cf)[["Clade", "Reason"]].values) if os.path.exists(cf) else {}
 # node-based raw rate files: re-binned per event (bins anchored at the extinction age)
 NODE = {"Tetrapoda_stem_phenotypic_rate": ("simoes_pierce_2021_tetrapods.csv", "node_age_median", "relrates", "simoes_pierce_2021", dict(max_age=380.0)),
+        "Archosauromorpha_stem_phenotypic_rate": ("simoes_2022_archo_stem.csv", "node_age_median", "rates", "simoes_2022", {}),
         "Squamata_crown_phenotypic_rate_continuous_data_GMM": ("simoes_2026_squam_rates_cont.csv", "age_median", "rate_BT", "simoes_2026", dict(drop_zero=True)),
         "Squamata_crown_phenotypic_rate_discrete_data": ("simoes_2026_squam_rates_disc.csv", "node_age_median", "relrates", "simoes_2026", {})}
 
@@ -71,6 +76,11 @@ L = pd.DataFrame(log, columns=["Series", "Extinction_event", "Extinction_age_Ma"
 lf = OUT_MASSEXT + "crop_log.csv"
 if os.path.exists(lf):                       # keep the rows of series not in this key; replace the others in place
     old = pd.read_csv(lf); new = L.set_index("Series")
+    gone = [s for s in old.Series if s in set(key.sid) and s not in new.index]    # key rows no longer cropped
+    for s in gone:
+        if os.path.exists(OUT_MASSEXT + s + ".csv"):
+            print(f"note: {s}.csv is no longer cropped by this key (old crop file left in outputs/data_tables/mass_extinction/)")
+    old = old[~old.Series.isin(gone)].reset_index(drop=True)
     rows = [new.loc[s].to_dict() | {"Series": s} if s in new.index else old.iloc[i].to_dict() for i, s in enumerate(old.Series)]
     rows += [L.iloc[i].to_dict() for i, s in enumerate(L.Series) if s not in set(old.Series)]
     L = pd.DataFrame(rows)[L.columns]

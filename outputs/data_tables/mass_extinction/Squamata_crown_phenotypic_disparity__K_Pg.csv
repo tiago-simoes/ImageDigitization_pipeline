@@ -1,4 +1,0 @@
-Clade,Parameter,Age_Ma,Value,Value_err,Err_lo,Err_hi,Err_type,Source,Age_cal_sd
-Squamata_crown,phenotypic_disparity,61.0,18.08988,0.07867,17.93568,18.24408,95CI,"simoes_2020 (raw data simoes_2020_lepido_disparity.csv: age, median, ci95; 8 time bins, 100 bootstrap replicates each; same file as Lepidosauria, as listed in the key); mass-extinction crop: data <= 66 Ma (K-Pg)",0.0
-Squamata_crown,phenotypic_disparity,45.0,18.90204,0.03027,18.84271,18.96137,95CI,"simoes_2020 (raw data simoes_2020_lepido_disparity.csv: age, median, ci95; 8 time bins, 100 bootstrap replicates each; same file as Lepidosauria, as listed in the key); mass-extinction crop: data <= 66 Ma (K-Pg)",0.0
-Squamata_crown,phenotypic_disparity,0.003,19.97228,0.01165,19.94944,19.99512,95CI,"simoes_2020 (raw data simoes_2020_lepido_disparity.csv: age, median, ci95; 8 time bins, 100 bootstrap replicates each; same file as Lepidosauria, as listed in the key); mass-extinction crop: data <= 66 Ma (K-Pg)",0.0

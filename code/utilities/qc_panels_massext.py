@@ -6,7 +6,9 @@ Helpers : shared functions imported from code/digitise_master.py (documented the
 
 Source crops + QC panels (source | digitised series) for the sources of the mass_extinction group.
 Writes outputs/figures/<parameter folder>/<Clade>_<parameter>_<Source>.png and ..._QC_digitised.png. Run after the
-digitisation scripts (guo2024.py, whalen2020.py, cole_hopkins2021.py, lamsdell_selden2016.py, halliday_goswami2016.py).
+digitisation scripts (guo2024.py, whalen2020.py, cole_hopkins2021.py, lamsdell_selden2016.py, halliday_goswami2016.py);
+a panel whose source raster has not been extracted (its script was not run, e.g. with --key and the clade-origin key)
+is skipped with a note.
 """
 import os, sys; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # code/, where digitise_master.py lives
 from digitise_master import *                                   # shared helpers (see digitise_master.py)
@@ -29,6 +31,9 @@ S += [("Crinoidea_Diplobathrida", "taxonomic_diversity", "Crinoidea_Diplobathrid
       ("Eurypterida", "phenotypic_disparity", "Eurypterida_disparity_LamsdellSelden2016_Fig4.png", lambda p: ras(L4, None, p)),
       ("Placentalia", "phenotypic_disparity", "Placentalia_disparity_HallidayGoswami2016_Fig4.png", lambda p: ras(H4, None, p))]
 for cl, par, name, fn in S:
-    F = os.path.join(FIGS, FOLD[par]); os.makedirs(F, exist_ok=True); path = os.path.join(F, name); fn(path)
+    F = os.path.join(FIGS, FOLD[par]); os.makedirs(F, exist_ok=True); path = os.path.join(F, name)
+    try: fn(path)
+    except FileNotFoundError as e:   # raster not extracted yet (its script was not part of this run, e.g. --key with a subset)
+        print(f"skipped {os.path.relpath(path, ROOT)}: {os.path.relpath(e.filename, ROOT) if e.filename else 'source image'} not found (run the script that extracts it)"); continue
     qc_panel(cl, par, path, f"{OUT}{cl}_{par}.csv", title_chars=95)   # source | digitised (digitise_master.qc_panel)
     print(os.path.relpath(path, ROOT))

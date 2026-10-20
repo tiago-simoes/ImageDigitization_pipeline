@@ -1,6 +1,4 @@
 Series,Extinction_event,Extinction_age_Ma,Crop,N_before,N_after,Oldest_after,Youngest
-Acanthomorpha_phenotypic_disparity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,111,67,65.94,0.32
-Acanthomorpha_taxonomic_diversity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,146,66,65.12,0.29
 Ammonoidea_phenotypic_disparity__end_Devoninan_Frasnian,end-Devoninan (Frasnian),374.0,rows with Age_Ma <= extinction age,156,124,374.0,251.0
 Ammonoidea_phenotypic_disparity__end_Devoninan_Famennian,end-Devoninan (Famennian),359.0,rows with Age_Ma <= extinction age,156,109,359.0,251.0
 Ammonoidea_taxonomic_diversity__end_Devoninan_Frasnian,end-Devoninan (Frasnian),374.0,rows with Age_Ma <= extinction age,156,124,374.0,251.0
@@ -33,13 +31,6 @@ Eurypterida_phenotypic_disparity__end_Ordovician,end-Ordovician,443.0,rows with 
 Eurypterida_phenotypic_disparity__end_Devoninan_Frasnian,end-Devoninan (Frasnian),374.0,rows with Age_Ma <= extinction age,13,5,371.09,266.1
 Eurypterida_taxonomic_diversity__end_Ordovician,end-Ordovician,443.0,rows with Age_Ma <= extinction age,31,26,438.46,257.05
 Eurypterida_taxonomic_diversity__end_Devoninan_Frasnian,end-Devoninan (Frasnian),374.0,rows with Age_Ma <= extinction age,31,16,365.7,257.05
-Placentalia_phenotypic_disparity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,27,16,64.75,2.53
-Placentalia_phenotypic_rate__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,97,66,66.0,1.0
-Placentalia_taxonomic_diversity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,96,65,65.03,1.12
-Squamata_crown_phenotypic_disparity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,8,3,61.0,0.0
-Squamata_crown_phenotypic_rate_continuous_data_GMM__K_Pg,K-Pg,66.0,"raw nodes <= extinction age, 5-Myr bins anchored at the extinction age",23,9,63.19,23.63
-Squamata_crown_phenotypic_rate_discrete_data__K_Pg,K-Pg,66.0,"raw nodes <= extinction age, 5-Myr bins anchored at the extinction age",36,10,63.88,0.0
-Squamata_crown_taxonomic_diversity__K_Pg,K-Pg,66.0,rows with Age_Ma <= extinction age,43,21,63.8,0.07
 Tetrapoda_stem_phenotypic_disparity__end_Devoninan_Famennian,end-Devoninan (Famennian),359.0,rows with Age_Ma <= extinction age,130,109,358.99,251.37
 Tetrapoda_stem_phenotypic_rate__end_Devoninan_Famennian,end-Devoninan (Famennian),359.0,"raw nodes <= extinction age, 5-Myr bins anchored at the extinction age",12,8,355.2,287.23
 Tetrapoda_stem_taxonomic_diversity__end_Devoninan_Famennian,end-Devoninan (Famennian),359.0,rows with Age_Ma <= extinction age,70,68,352.8,0.01

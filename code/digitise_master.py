@@ -543,7 +543,9 @@ REGISTRY = [
     "reads the Close 2019 tables (run after close2019_*)", requires=["close2019_3_max_richness", "close2019_5_squamata_stages"]),
  _r("zhou2023", "invertebrates", "vector", "zhou_et_al_2023", "Fig. 1a", ["Bivalvia_phenotypic_disparity.csv", "Bivalvia_taxonomic_diversity.csv"], qc=QI),
  _r("paterson2019", "invertebrates", "vector", "paterson_et_al_2019_withSI", "Fig. 3", ["Trilobita_phenotypic_rate.csv", "Trilobita_phenotypic_rate_rawpoints.csv"], qc=QI),
- _r("novack_gottshall2022", "invertebrates", "vector", "novack-gottshall_et_al_2022", "Fig. 1b, 1c", ["Echinodermata_phenotypic_rate.csv", "Echinodermata_phenotypic_disparity.csv"], qc=QI),
+ _r("novack_gottshall2022", "invertebrates", "vector", "novack-gottshall_et_al_2022", "Fig. 1b, 1c; ED Fig. 1a",
+    ["Echinodermata_phenotypic_rate.csv", "Echinodermata_phenotypic_disparity.csv", "Echinodermata_taxonomic_diversity.csv"],
+    "ED Fig. 1a (raster, extracted by the script): top edge of the stacked lineage richness = sum of all classes", qc=QI),
  _r("hopkins_smith2015", "invertebrates", "vector", "hopkins_smith_2015", "Fig. 2A (Fig. 1)", ["Echinoidea_Irregularia_phenotypic_rate.csv"],
     "Fig. 2A (Irregularia) used; Fig. 1 (all crown-group echinoids) written to intermediates/ for reference", qc=QI),
  _r("boivin2018", "invertebrates", "vector", "boivin-et_al_2018", "Fig. 3", ["Echinoidea_Irregularia_phenotypic_disparity.csv", "Echinoidea_Irregularia_taxonomic_diversity.csv"], qc=QI),
@@ -593,7 +595,7 @@ HOW = {
  "raw_data_convert": "node-based rate files binned with node_bins(); Lepidosauria disparity per time slice; Close 2019 tables reformatted",
  "zhou2023": "blue (functional groups) and black (genera) circle markers read from the vector PDF; Poisson error",
  "paterson2019": "blue per-branch rate markers (vector) binned in 2-Myr bins (mean +/- SE, n >= 3)",
- "novack_gottshall2022": "red dashed morphology lines and their bands read from vector paths (line_and_band)",
+ "novack_gottshall2022": "red dashed morphology lines and their bands read from vector paths (line_and_band); ED Fig. 1a: top edge of the stacked lineage-richness area traced per pixel column (raster)",
  "hopkins_smith2015": "black mean markers and vertical CI bars read from vector paths",
  "boivin2018": "top-most envelope of the stacked areas (sum of all clades) read from vector paths",
  "fan2020": "species-level curves traced per pixel column (median of line pixels), averaged in 1-Myr bins",
@@ -644,6 +646,11 @@ def scripts_for_key(key_file, verbose=True):
         ref = r.reference.strip().lower()
         if ref in ("na", ""): rows.append((r.base_sid, "-", "no published source (skipped)")); continue
         hit = [e for e in REGISTRY if any(o[:-4] == r.base_sid or o[:-4].startswith(r.base_sid + "_") for o in e["outputs"])]
+        if not hit and r.dt_slug and r.dt_slug == slug(r.reference):
+            # id told apart by its reference (repeated clade x parameter rows without data_type, e.g. the two
+            # Mammalia_early diversity rows of the mass-extinction key): match the clade x parameter, then the reference
+            sid0 = r.clade.strip() + "_" + r.pr_std
+            hit = [e for e in REGISTRY if any(o[:-4] == sid0 or o[:-4].startswith(sid0 + "_") for o in e["outputs"])]
         if len(hit) > 1:
             byref = [e for e in hit if any(ref == x or ref.startswith(x) or x.startswith(ref)
                                            for x in (y.replace("(converted)", "").strip().lower() for y in e["reference"].split(",")))]
